@@ -1,0 +1,137 @@
+{ pkgs, lib, system, homeDirectory,Adan-nixvim, ... }: 
+let
+  isDarwin = system == "aarch64-darwin";
+  isLinux = system == "x86_64-linux";
+  username = "adan";
+
+  tex = pkgs.texlive.combine {
+    inherit (pkgs.texlive) scheme-full;
+    };
+
+  # Adan_nixvim = Adan-nixvim.packages.${system}.default;
+  # nixvim = Adan-nixvim.packages.${system}.nixvim;
+   inherit (Adan-nixvim.packages.${system}) nixvim;
+
+in
+{
+
+   home = {
+      homeDirectory = lib.mkForce homeDirectory;
+      stateVersion = "23.05";
+
+      packages = with pkgs; [
+         # pkgs.oh-my-zsh
+         # zsh-autosuggestions
+         # zsh-syntax-highlighting
+         tex
+         clang-tools     # includes clangd, clang-tidy, clang++
+         cmake           # to generate compile_commands.json
+         libcxx          # C++ standard library headers
+         gnumake         # optional, if you use Makefiles
+         nixvim
+         git
+         git-credential-manager
+      ];
+      sessionVariables = {
+         # Make the flake’s nvim first in $PATH:
+         PATH   = "${nixvim}/bin:${pkgs.lib.makeBinPath [ pkgs.coreutils ]}:$PATH";
+         # And for any $EDITOR-aware tool:
+         EDITOR = "nvim";
+
+         CC = "clang";
+         CXX = "clang++";
+         CPLUS_INCLUDE_PATH = "${pkgs.libcxx.dev}/include/c++/v1";
+      };
+   };
+  
+  imports = [
+  ];
+
+   programs = {
+        # Let home-manager install and manage itself.
+
+      home-manager.enable = true;
+
+      zsh = {
+         enable = true;
+
+         syntaxHighlighting.enable = true;
+         oh-my-zsh = {
+            enable = true;
+            theme = "agnoster";
+            plugins = [
+               "git"
+               "colored-man-pages"
+               "colorize"
+               "pip"
+               "python"
+               "brew"
+               "extract"
+               "npm"
+               "node"
+               "history"
+            ];
+         };
+
+         shellAliases = lib.mkMerge [
+            (lib.mkIf isDarwin {
+               ll = "ls -l";
+               la = "ls -la";
+               # ndi = "nix run nix-darwin --extra-experimental-features 'nix-command flakes' -- switch --flake ~/.config/nix";
+               ndr = "darwin-rebuild switch --flake ~/.config/nix#Adans-MacBook-Air";
+               nixgc = "nix-collect-garbage -d && nix store optimise";
+               # nvim = "/Users/adan/adans_nix_nvim/result/bin/nvim";
+            })
+            (lib.mkIf isLinux {
+               ll = "ls -l";
+               la = "ls -la";
+               nixgc = "nix-collect-garbage -d && nix store optimise";
+            })
+         ];
+
+         initContent  = lib.mkMerge [
+
+            # Mac-specific init
+            (lib.mkIf isDarwin ''
+              # Exports
+              # export PATH="$PATH:/Users/adan/.local/bin"
+              export PATH="$PATH:/Users/${username}/.local/bin"
+              export PATH="$PATH:/opt/homebrew/bin"
+              export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+
+              # Zsh plugins
+              source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+              source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+              # >>> conda initialize >>>
+              # !! Contents within this block are managed by 'conda init' !!
+              # __conda_setup="$('/Users/adan/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+              __conda_setup="$('/Users/${username}/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+              if [ $? -eq 0 ]; then
+                  eval "$__conda_setup"
+              else
+                  # if [ -f "/Users/adan/miniconda3/etc/profile.d/conda.sh" ]; then
+                  if [ -f "/Users/${username}/miniconda3/etc/profile.d/conda.sh" ]; then
+                      # . "/Users/adan/miniconda3/etc/profile.d/conda.sh"
+                      . "/Users/${username}/miniconda3/etc/profile.d/conda.sh"
+                  else
+                      # export PATH="/Users/adan/miniconda3/bin:$PATH"
+                      export PATH="/Users/${username}/miniconda3/bin:$PATH"
+                  fi
+              fi
+              unset __conda_setup
+            '')
+
+            # Linux-specific init
+            (lib.mkIf isLinux ''
+               # Zsh plugins
+               source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+               source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+            '')
+         ];
+      };
+
+   };
+
+}
