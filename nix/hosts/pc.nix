@@ -9,21 +9,27 @@ in
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  nixpkgs.hostPlatform = "x86_64-linux";
+   nixpkgs.hostPlatform = "x86_64-linux";
 
-  system.stateVersion = "23.05";
+ # System configuration
+   system.stateVersion = "23.05";
+   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
+   nix.settings.experimental-features = "nix-command flakes";
 
-  nix.settings.experimental-features = "nix-command flakes";
 
+ # Home Manager configuration
+   home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      verbose = true;
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.users.adan = import ../home.nix {
-    inherit pkgs lib;
-    system = "x86_64-linux";
-    homeDirectory = "/home/${username}";
-  };
-
+      users.${username} = import ../home.nix {
+         inherit pkgs lib;
+         system = "x86_64-linux";
+         homeDirectory = "/home/${username}";
+         inherit (inputs) "Adan-nixvim";
+      };
+   };
   programs.zsh.enable = true;
 
 }

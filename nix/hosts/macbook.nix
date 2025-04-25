@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib,Adan-nixvim, ... }:
+{ inputs, pkgs, lib, ... }:
 let 
   username = "adan";
 
@@ -11,23 +11,22 @@ in
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+ # System configuration
   system.stateVersion = 6;
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-
   nix.settings.experimental-features = "nix-command flakes";
 
-  #change to macbook username as needed
-
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.verbose = true;
-  home-manager.users.${username} = import ../home.nix {
-    inherit pkgs lib;
-    system = "aarch64-darwin";
-    homeDirectory = "/Users/${username}";
-    Adan-nixvim = inputs.Adan-nixvim;  # Pass the nixvim input here
-  };
-
+ # Home Manager configuration
+   home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      verbose = true;
+      users.${username} = import ../home.nix {
+         inherit pkgs lib;
+         system = "aarch64-darwin";
+         homeDirectory = "/Users/${username}";
+         inherit (inputs) Adan-nixvim;
+      };
+   };
   programs.zsh.enable = true;
-
 }

@@ -13,7 +13,8 @@
     Adan-nixvim.url = "github:AdanW7/nixvim";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs,home-manager,Adan-nixvim, ... }:{
+  # outputs = inputs@{ self, nix-darwin, nixpkgs,home-manager,Adan-nixvim, ... }:{
+  outputs = inputs@{ nix-darwin, nixpkgs, ... }:{
   
     # Build darwin flake using:
     # $ darwin-rebuild switch --flake ~/.config/nix#Adans-MacBook-Air
