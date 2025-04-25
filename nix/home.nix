@@ -73,9 +73,11 @@ in
                ll = "ls -l";
                la = "ls -la";
                # ndi = "nix run nix-darwin --extra-experimental-features 'nix-command flakes' -- switch --flake ~/.config/nix";
-               ndr = "darwin-rebuild switch --flake ~/.config/nix#Adans-MacBook-Air";
+               # ndr = "darwin-rebuild switch --flake ~/.config/nix#Adans-MacBook-Air";
+               ndr = "darwin-rebuild switch --flake ${homeDirectory}/.config/nix#Adans-MacBook-Air";
                nixgc = "nix-collect-garbage -d && nix store optimise";
-               ndu = "nix flake update ~/.config/nix#Adans-MacBook-Air";
+               ndu = "nix flake update --flake ${homeDirectory}/.config/nix#Adans-MacBook-Air";
+
             })
             (lib.mkIf isLinux {
                ll = "ls -l";
