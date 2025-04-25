@@ -8,8 +8,6 @@ let
     inherit (pkgs.texlive) scheme-full;
     };
 
-  # Adan_nixvim = Adan-nixvim.packages.${system}.default;
-  # nixvim = Adan-nixvim.packages.${system}.nixvim;
    inherit (Adan-nixvim.packages.${system}) nixvim;
 
 in
@@ -20,9 +18,6 @@ in
       stateVersion = "23.05";
 
       packages = with pkgs; [
-         # pkgs.oh-my-zsh
-         # zsh-autosuggestions
-         # zsh-syntax-highlighting
          tex
          clang-tools     # includes clangd, clang-tidy, clang++
          cmake           # to generate compile_commands.json
@@ -80,7 +75,6 @@ in
                # ndi = "nix run nix-darwin --extra-experimental-features 'nix-command flakes' -- switch --flake ~/.config/nix";
                ndr = "darwin-rebuild switch --flake ~/.config/nix#Adans-MacBook-Air";
                nixgc = "nix-collect-garbage -d && nix store optimise";
-               # nvim = "/Users/adan/adans_nix_nvim/result/bin/nvim";
             })
             (lib.mkIf isLinux {
                ll = "ls -l";
