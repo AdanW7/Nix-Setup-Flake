@@ -75,6 +75,7 @@ in
                # ndi = "nix run nix-darwin --extra-experimental-features 'nix-command flakes' -- switch --flake ~/.config/nix";
                ndr = "darwin-rebuild switch --flake ~/.config/nix#Adans-MacBook-Air";
                nixgc = "nix-collect-garbage -d && nix store optimise";
+               ndu = "nix flake update ~/.config/nix#Adans-MacBook-Air";
             })
             (lib.mkIf isLinux {
                ll = "ls -l";
