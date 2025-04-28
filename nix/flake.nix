@@ -1,41 +1,44 @@
 {
-  description = "Adans cross platform system flake";
+description = "Adans cross platform system flake";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    
-    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+   inputs = {
+      nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    
-    Adan-nixvim.url = "github:AdanW7/nixvim";
-  };
+      nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+      nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-  # outputs = inputs@{ self, nix-darwin, nixpkgs,home-manager,Adan-nixvim, ... }:{
-  outputs = inputs@{ nix-darwin, nixpkgs, ... }:{
-  
-    # Build darwin flake using:
-    # $ darwin-rebuild switch --flake ~/.config/nix#Adans-MacBook-Air
-    darwinConfigurations."Adans-MacBook-Air" = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      modules = [
-        ./hosts/macbook.nix
-      ];
-      specialArgs = { inherit inputs; };
-    };
+      home-manager.url = "github:nix-community/home-manager";
+      home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Build nixos flake using: adan-nixos-pc is an example hostName
-    # $ sudo nixos-rebuild switch --flake ~/.config/nix#adan-nixos-pc
-    nixosConfigurations."adan-nixos-pc" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/pc.nix
-      ];
-      specialArgs = { inherit inputs; };
-    };
+      Adan-nixvim.url = "github:AdanW7/nixvim";
+      Adan-C-Dev-Shell.url = "https://github.com/AdanW7/nix_C_dev_flake";
 
-  };
+      # flake-utils.url = "github:numtide/flake-utils";
+   };
+
+   # outputs = inputs@{ self, nix-darwin, nixpkgs,home-manager,Adan-nixvim, ... }:{
+   outputs = inputs@{ nix-darwin, nixpkgs, ... }:{
+
+      # Build darwin flake using:
+      # $ darwin-rebuild switch --flake ~/.config/nix#Adans-MacBook-Air
+      darwinConfigurations."Adans-MacBook-Air" = nix-darwin.lib.darwinSystem {
+         system = "aarch64-darwin";
+         modules = [
+            ./hosts/macbook.nix
+         ];
+         specialArgs = { inherit inputs; };
+      };
+
+      # Build nixos flake using: adan-nixos-pc is an example hostName
+      # $ sudo nixos-rebuild switch --flake ~/.config/nix#adan-nixos-pc
+      nixosConfigurations."adan-nixos-pc" = nixpkgs.lib.nixosSystem {
+         system = "x86_64-linux";
+         modules = [
+            ./hosts/pc.nix
+         ];
+         specialArgs = { inherit inputs; };
+      };
+
+   };
 }
 

@@ -27,7 +27,8 @@ in
          inherit pkgs lib;
          system = "x86_64-linux";
          homeDirectory = "/home/${username}";
-         inherit (inputs) "Adan-nixvim";
+         # inherit (inputs) "Adan-nixvim";
+         inherit (inputs) Adan-nixvim Adan-C-Dev-Shell;
       };
    };
   programs.zsh.enable = true;
