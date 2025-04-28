@@ -1,4 +1,5 @@
-{ pkgs, lib, system, homeDirectory,Adan-nixvim, Adan-C-Dev-Shell, ... }: 
+# { pkgs, lib, system, homeDirectory,Adan-nixvim, Adan-C-Dev-Shell, ... }: 
+{ pkgs, lib, system, homeDirectory,Adan-nixvim, ... }: 
 let
   isDarwin = system == "aarch64-darwin";
   isLinux = system == "x86_64-linux";
@@ -10,7 +11,7 @@ let
 
    inherit (Adan-nixvim.packages.${system}) nixvim;
 
-   cDevPackages = Adan-C-Dev-Shell.devShells.${system}.packages or [];
+   # cDevPackages = Adan-C-Dev-Shell.devShells.${system}.packages or [];
 
 in
 {
@@ -28,7 +29,8 @@ in
          nixvim
          git
          git-credential-manager
-      ]++cDevPackages;
+      ];
+      # ]++cDevPackages;
 
       sessionVariables = {
          # Make the flake’s nvim first in $PATH:
