@@ -11,12 +11,8 @@ description = "Adans cross platform system flake";
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
       Adan-nixvim.url = "github:AdanW7/nixvim";
-      # Adan-C-Dev-Shell.url = "https://github.com/AdanW7/nix_C_dev_flake";
-
-      # flake-utils.url = "github:numtide/flake-utils";
    };
 
-   # outputs = inputs@{ self, nix-darwin, nixpkgs,home-manager,Adan-nixvim, ... }:{
    outputs = inputs@{ nix-darwin, nixpkgs, ... }:{
 
       # Build darwin flake using:
@@ -40,5 +36,9 @@ description = "Adans cross platform system flake";
       };
 
    };
+
+
+
+
 }
 

@@ -1,4 +1,3 @@
-# { pkgs, lib, system, homeDirectory,Adan-nixvim, Adan-C-Dev-Shell, ... }: 
 { pkgs, lib, system, homeDirectory,Adan-nixvim, ... }: 
 let
   isDarwin = system == "aarch64-darwin";
@@ -11,7 +10,6 @@ let
 
    inherit (Adan-nixvim.packages.${system}) nixvim;
 
-   # cDevPackages = Adan-C-Dev-Shell.devShells.${system}.packages or [];
 
 in
 {
@@ -25,12 +23,11 @@ in
          clang-tools     # includes clangd, clang-tidy, clang++
          cmake           # to generate compile_commands.json
          libcxx          # C++ standard library headers
-         gnumake         # optional, if you use Makefiles
+         gnumake
          nixvim
          git
          git-credential-manager
       ];
-      # ]++cDevPackages;
 
       sessionVariables = {
          # Make the flake’s nvim first in $PATH:
