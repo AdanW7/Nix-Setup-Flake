@@ -79,7 +79,7 @@ in
                ndr = "darwin-rebuild switch --flake ${homeDirectory}/.config/nix#Adans-MacBook-Air";
                nixgc = "nix-collect-garbage -d && nix store optimise";
                ndu = "nix flake update --flake ${homeDirectory}/.config/nix";
-               nixd = "nix develop ~/.config/C_dev_shell/";
+               nix_c_dev = "nix develop ~/.config/C_dev_shell/";
 
             })
             (lib.mkIf isLinux {
