@@ -27,6 +27,16 @@ in
          nixvim
          git
          git-credential-manager
+
+         cargo
+         rustc 
+         rust-analyzer
+         rustfmt
+
+
+         openssl
+         pkg-config
+
       ];
 
       sessionVariables = {
