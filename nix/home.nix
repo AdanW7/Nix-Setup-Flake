@@ -33,6 +33,8 @@ in
          rust-analyzer
          rustfmt
 
+         zig
+         zls
 
          openssl
          pkg-config
