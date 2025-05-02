@@ -144,7 +144,8 @@ in
       useUserPackages = true;
       verbose = true;
 
-      users.${username} = import ./../../home.nix {
+      # users.${username} = import ./../../home.nix {
+      users.${username} = import ./home.nix {
          inherit pkgs lib;
          system = "x86_64-linux";
          homeDirectory = "/home/${username}";
