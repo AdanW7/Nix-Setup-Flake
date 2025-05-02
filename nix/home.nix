@@ -100,6 +100,7 @@ in
                nixgc = "nix-collect-garbage -d && nix store optimise";
                nixsysrebuild ="sudo nixos-rebuild switch --flake ${homeDirectory}/.config/nix#nixos";
                nixsysupdate = "nix flake update --flake ${homeDirectory}/.config/nix";
+               nixdelgen="sudo nix-env --delete-generations +2 --profile /nix/var/nix/profiles/system";
                nix-c-dev = "nix develop github:AdanW7/nix_C_dev_flake --impure --no-write-lock-file --command $SHELL";
             })
          ];
