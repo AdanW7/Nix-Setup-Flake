@@ -89,6 +89,8 @@ in
       kdePackages.gwenview
       kdePackages.dolphin
 
+      fastfetch
+
       firefox
       google-chrome
    ];
