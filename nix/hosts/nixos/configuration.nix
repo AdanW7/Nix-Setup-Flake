@@ -142,7 +142,7 @@ in
    };
 
    programs.zsh.enable = true;
-   hardware.opengl.extraPackages = with pkgs; [
-     amdvlk
-   ];
+   # hardware.opengl.extraPackages = with pkgs; [
+   #   amdvlk
+   # ];
 }
