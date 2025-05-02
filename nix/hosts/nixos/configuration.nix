@@ -115,7 +115,7 @@ in
       autoLogin.user = "adan";
    };
    services.xserver.videoDrivers = [ "amdgpu" ];
-   services.udisk2.enable = true;
+   services.udisks2.enable = true;
 
    # Open ports in the firewall.
    # networking.firewall.allowedTCPPorts = [ ... ];
