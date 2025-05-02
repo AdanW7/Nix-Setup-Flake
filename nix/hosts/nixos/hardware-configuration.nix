@@ -22,6 +22,7 @@
       fsType = "ext4";
    };
 
+
    fileSystems."/boot" ={ 
       device = "/dev/disk/by-uuid/B94B-9DFE";
       fsType = "vfat";
@@ -32,6 +33,24 @@
    [ 
       { device = "/dev/disk/by-uuid/dfd0d1e7-4714-4200-8f32-9cd7db6502df"; }
    ];
+
+
+   fileSystems."/media/wd" ={ 
+      device = "/dev/disk/by-uuid/204A71954A716904";
+      fsType = "ntfs";
+   };
+   
+
+   fileSystems."/media/toshiba" ={ 
+      device = "/dev/disk/by-uuid/36D680C9D6808AB7";
+      fsType = "ntfs";
+   };
+
+   fileSystems."/media/pny" ={ 
+      device = "/dev/disk/by-uuid/5AF67C2DF67C0B8F";
+      fsType = "ntfs";
+   };
+
 
    # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
    # (the default) this is the recommended approach. When using systemd-networkd it's
