@@ -86,10 +86,10 @@ in
       swww
       rofi-wayland
 
-      nnn
-      gwenview
+      kdePackages.gwenview
 
       firefox
+      google-chrome
    ];
 
    # Some programs need SUID wrappers, can be configured further or are
