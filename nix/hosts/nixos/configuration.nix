@@ -87,6 +87,7 @@ in
       rofi-wayland
 
       kdePackages.gwenview
+      kdePackages.dolphin
 
       firefox
       google-chrome
