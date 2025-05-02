@@ -99,6 +99,7 @@ in
                la = "ls -la";
                nixgc = "nix-collect-garbage -d && nix store optimise";
                nixsysrebuild ="sudo nixos-rebuild switch --flake ${homeDirectory}/.config/nix#nixos";
+               nixsysupdate = "nix flake update --flake ${homeDirectory}/.config/nix";
                nix-c-dev = "nix develop github:AdanW7/nix_C_dev_flake --impure --no-write-lock-file --command $SHELL";
             })
          ];
