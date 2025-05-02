@@ -2,12 +2,19 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{inputs,pkgs,lib, config, ... }:
+let 
+  username = "adan";
+
+in
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./../../modules/common.nix
+      inputs.home-manager.nixosModules.home-manager
+
     ];
 
 
@@ -66,18 +73,22 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    curl
+
     ghostty
     kitty
+
     waybar
     dunst
     libnotify
     swww
     rofi-wayland
+
     firefox
-    git
-    curl
+
+    # git
 
   ];
 
@@ -109,6 +120,8 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
+  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
+
   
   programs.hyprland= {
     enable = true;
@@ -118,8 +131,22 @@
   environment.sessionVariables = {
     NIXOS_OZON_WL = 1;
   };
-  hardware = {
-    graphics.enable = true;
-  };
+  
+     home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      verbose = true;
+
+      users.${username} = import ../home.nix {
+         inherit pkgs lib;
+         system = "x86_64-linux";
+         homeDirectory = "/home/${username}";
+         inherit (inputs) Adan-nixvim;
+      };
+   };
+
+   programs.zsh.enable = true;
+
+
 
 }

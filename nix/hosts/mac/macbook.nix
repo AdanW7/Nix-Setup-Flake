@@ -5,7 +5,8 @@ let
 in
 {
   imports = [
-    ../modules/common.nix
+    # ../modules/common.nix
+    ./../../modules/common.nix
     inputs.home-manager.darwinModules.home-manager
   ];
 
@@ -21,7 +22,8 @@ in
       useGlobalPkgs = true;
       useUserPackages = true;
       verbose = true;
-      users.${username} = import ../home.nix {
+      # users.${username} = import ../home.nix {
+      users.${username} = import ./../../home.nix {
          inherit pkgs lib;
          system = "aarch64-darwin";
          homeDirectory = "/Users/${username}";
