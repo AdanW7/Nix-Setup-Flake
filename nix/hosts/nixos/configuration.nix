@@ -90,6 +90,7 @@ in
       kdePackages.dolphin
       gnome-disk-utility
 
+      wl-clipboard
 
       fastfetch
 
