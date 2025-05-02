@@ -19,7 +19,6 @@
    #    kernelModules = [ "kvm-amd" ];
    # };
 
-extraModulePackages = [ ];
    fileSystems."/" ={ 
       device = "/dev/disk/by-uuid/78b5fffd-0f8f-459c-a798-8173e1c2dc39";
       fsType = "ext4";
