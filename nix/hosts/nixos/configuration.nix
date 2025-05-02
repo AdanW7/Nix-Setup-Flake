@@ -86,6 +86,8 @@ in
       swww
       rofi-wayland
 
+      nnn
+
       firefox
    ];
 
