@@ -45,7 +45,7 @@
 
    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
    hardware = {
-      grapics = {
+      graphics = {
          enable = true;
          enable32Bit =true;
          extraPackages = with pkgs; [
