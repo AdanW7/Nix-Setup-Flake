@@ -88,6 +88,8 @@ in
 
       kdePackages.gwenview
       kdePackages.dolphin
+      gnome-disk-utility
+
 
       fastfetch
 
@@ -113,6 +115,7 @@ in
       autoLogin.user = "adan";
    };
    services.xserver.videoDrivers = [ "amdgpu" ];
+   services.udisk2.enable = true;
 
    # Open ports in the firewall.
    # networking.firewall.allowedTCPPorts = [ ... ];
@@ -144,7 +147,6 @@ in
       useUserPackages = true;
       verbose = true;
 
-      # users.${username} = import ./../../home.nix {
       users.${username} = import ./home.nix {
          inherit pkgs lib;
          system = "x86_64-linux";
