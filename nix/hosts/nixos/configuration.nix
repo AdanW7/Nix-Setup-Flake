@@ -87,6 +87,7 @@ in
       rofi-wayland
 
       nnn
+      gwenview
 
       firefox
    ];
