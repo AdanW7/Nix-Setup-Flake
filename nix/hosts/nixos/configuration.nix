@@ -100,6 +100,10 @@ in
    services.openssh.enable = true;
    services.xserver.enable = true;
    services.xserver.displayManager.gdm.enable = true;
+   services.displayManager = {
+      autoLogin.enable = true;
+      autoLogin.user = "adan";
+   };
    services.xserver.videoDrivers = [ "amdgpu" ];
 
    # Open ports in the firewall.
