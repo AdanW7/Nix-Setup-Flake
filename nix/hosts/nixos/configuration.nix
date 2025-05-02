@@ -23,6 +23,7 @@ in
    # Bootloader.
    boot.loader.systemd-boot.enable = true;
    boot.loader.efi.canTouchEfiVariables = true;
+   boot.initrd.kernelModules = [ "amdgpu" ];
 
    networking.hostName = "nixos"; # Define your hostname.
    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -97,10 +98,10 @@ in
 
    # List services that you want to enable:
 
-   # Enable the OpenSSH daemon.
    services.openssh.enable = true;
    services.xserver.enable = true;
    services.xserver.displayManager.gdm.enable = true;
+   services.xserver.videoDrivers = [ "amdgpu" ];
 
    # Open ports in the firewall.
    # networking.firewall.allowedTCPPorts = [ ... ];
@@ -141,5 +142,7 @@ in
    };
 
    programs.zsh.enable = true;
-
+   hardware.opengl.extraPackages = with pkgs; [
+     amdvlk
+   ];
 }
