@@ -63,6 +63,7 @@ in
       isNormalUser = true;
       description = "adan";
       extraGroups = [ "networkmanager" "wheel" ];
+      shell = pkgs.zsh;
       packages = with pkgs; [];
    };
 
@@ -72,6 +73,7 @@ in
    # List packages installed in system profile. To search, run:
    # $ nix search wget
    environment.systemPackages = with pkgs; [
+      zsh
       wget
       curl
 
