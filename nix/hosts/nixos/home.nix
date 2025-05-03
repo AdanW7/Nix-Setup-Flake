@@ -40,6 +40,8 @@ in
          pkg-config
 
          steam
+         protonup
+         # gamemode
          tmux
          # tmux-sessionizer
 
@@ -64,6 +66,14 @@ in
         # Let home-manager install and manage itself.
 
       home-manager.enable = true;
+
+      steam = {
+         enable = true;
+         gamescopeSession.enable = true;
+      };
+      # gamemode = {
+      #    enable = true;
+      # };
 
       zsh = {
          enable = true;
