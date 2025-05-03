@@ -97,6 +97,7 @@ in
       firefox
       google-chrome
 
+      protontricks
       protonup
    ];
 
