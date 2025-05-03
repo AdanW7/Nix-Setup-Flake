@@ -39,8 +39,8 @@ in
          openssl
          pkg-config
 
-         steam
-         protonup
+         # steam
+         # protonup
          # gamemode
          tmux
          # tmux-sessionizer
@@ -67,10 +67,10 @@ in
 
       home-manager.enable = true;
 
-      steam = {
-         enable = true;
-         gamescopeSession.enable = true;
-      };
+      # steam = {
+      #    enable = true;
+      #    gamescopeSession.enable = true;
+      # };
       # gamemode = {
       #    enable = true;
       # };

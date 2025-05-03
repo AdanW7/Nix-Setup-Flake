@@ -139,8 +139,14 @@ in
       xwayland.enable = true;
    };
 
+   programs.steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+   };
+
    environment.sessionVariables = {
       NIXOS_OZON_WL = 1;
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/adan/.steam/root/compatibilitytools.d";
    };
   
    home-manager = {
