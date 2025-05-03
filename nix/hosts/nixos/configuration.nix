@@ -96,6 +96,8 @@ in
 
       firefox
       google-chrome
+
+      protonup
    ];
 
    # Some programs need SUID wrappers, can be configured further or are
