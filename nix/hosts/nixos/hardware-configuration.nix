@@ -38,17 +38,20 @@
    fileSystems."/media/wd" ={ 
       device = "/dev/disk/by-uuid/204A71954A716904";
       fsType = "ntfs";
+      options = ["rw" "uid=1000" "gid=100"];
    };
    
 
    fileSystems."/media/toshiba" ={ 
       device = "/dev/disk/by-uuid/36D680C9D6808AB7";
       fsType = "ntfs";
+      options = ["rw" "uid=1000" "gid=100"];
    };
 
    fileSystems."/media/pny" ={ 
       device = "/dev/disk/by-uuid/5AF67C2DF67C0B8F";
       fsType = "ntfs";
+      options = ["rw" "uid=1000" "gid=100"];
    };
 
 
