@@ -80,7 +80,7 @@ in
 
       ghostty
       kitty
-      nerd-fonts
+      # nerd-fonts
       font-awesome
       noto-fonts
       nerd-fonts.mononoki
