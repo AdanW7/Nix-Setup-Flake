@@ -80,6 +80,9 @@ in
 
       ghostty
       kitty
+      nerd-fonts
+      font-awesome
+      noto-fonts
       nerd-fonts.mononoki
       nerd-fonts.jetbrains-mono
 
@@ -139,16 +142,29 @@ in
    system.stateVersion = "24.11"; # Did you read the comment?
    system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
 
+   fonts.fontconfig.enable=true;
 
-   programs.hyprland= {
-      enable = true;
-      xwayland.enable = true;
+   programs = {
+      hyprland= {
+         enable = true;
+         xwayland.enable = true;
+      };
+      steam = {
+         enable = true;
+         gamescopeSession.enable = true;
+      };
    };
 
-   programs.steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-   };
+   # };
+   # programs.hyprland= {
+   #    enable = true;
+   #    xwayland.enable = true;
+   # };
+
+   # programs.steam = {
+   #    enable = true;
+   #    gamescopeSession.enable = true;
+   # };
 
    environment.sessionVariables = {
       NIXOS_OZON_WL = 1;
