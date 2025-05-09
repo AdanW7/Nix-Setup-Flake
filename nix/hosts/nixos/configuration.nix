@@ -81,6 +81,7 @@ in
       ghostty
       kitty
       nerd-fonts.mononoki
+      nerd-fonts.jetbrains-mono
 
       waybar
       dunst
