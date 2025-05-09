@@ -53,10 +53,10 @@ in
    };
 
    # Configure keymap in X11
-   services.xserver.xkb = {
-      layout = "us";
-      variant = "";
-   };
+   # services.xserver.xkb = {
+   #    layout = "us";
+   #    variant = "";
+   # };
 
    # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.adan = {
@@ -80,8 +80,6 @@ in
 
       ghostty
       kitty
-      # nerd-fonts
-      font-awesome
       noto-fonts
       nerd-fonts.mononoki
       nerd-fonts.jetbrains-mono
@@ -117,15 +115,33 @@ in
 
    # List services that you want to enable:
 
-   services.openssh.enable = true;
-   services.xserver.enable = true;
-   services.xserver.displayManager.gdm.enable = true;
-   services.displayManager = {
-      autoLogin.enable = true;
-      autoLogin.user = "adan";
+   # services.openssh.enable = true;
+   # services.xserver.enable = true;
+   # services.xserver.displayManager.gdm.enable = true;
+   # services.displayManager = {
+   #    autoLogin.enable = true;
+   #    autoLogin.user = "adan";
+   # };
+   # services.xserver.videoDrivers = [ "amdgpu" ];
+   # services.udisks2.enable = true;
+
+   services = {
+      openssh.enable = true;
+      xserver = {
+         xkb = {
+            layout = "us";
+            variant = "";
+         };
+         enable = true;
+         displayManager.gdm.enable = true;
+         videoDrivers = [ "amdgpu" ];
+      };
+      displayManager = {
+         autoLogin.enable = true;
+         autoLogin.user = "adan";
+      };
+      udisks2.enable = true;
    };
-   services.xserver.videoDrivers = [ "amdgpu" ];
-   services.udisks2.enable = true;
 
    # Open ports in the firewall.
    # networking.firewall.allowedTCPPorts = [ ... ];
@@ -153,18 +169,15 @@ in
          enable = true;
          gamescopeSession.enable = true;
       };
+      zsh = {
+         enable = true;
+      };
    };
 
-   # };
-   # programs.hyprland= {
-   #    enable = true;
-   #    xwayland.enable = true;
-   # };
-
-   # programs.steam = {
-   #    enable = true;
-   #    gamescopeSession.enable = true;
-   # };
+   fonts.packages = with pkgs; [
+       nerd-fonts.symbols-only
+       font-awesome
+   ];
 
    environment.sessionVariables = {
       NIXOS_OZON_WL = 1;
@@ -184,5 +197,4 @@ in
       };
    };
 
-   programs.zsh.enable = true;
 }
