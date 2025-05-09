@@ -80,6 +80,7 @@ in
 
       ghostty
       kitty
+      nerd-fonts.mononoki
 
       waybar
       dunst
