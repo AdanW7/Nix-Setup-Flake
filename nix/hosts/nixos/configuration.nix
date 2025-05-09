@@ -2,7 +2,8 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{inputs,pkgs,lib, config, ... }:
+# {inputs,pkgs,lib, config, ... }:
+{inputs,pkgs,lib, ... }:
 let 
   username = "adan";
 
@@ -24,15 +25,17 @@ in
    boot.loader.systemd-boot.enable = true;
    boot.loader.efi.canTouchEfiVariables = true;
 
-   networking.hostName = "nixos"; # Define your hostname.
-   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+   networking = {
+      hostName = "nixos";
+      wireless.enable = true;
+      proxy.default = "http://user:password@proxy:port/";
+      proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+      networkmanager.enable = true;
+      # firewall.allowedTCPPorts = [ ... ];
+      # firewall.allowedUDPPorts = [ ... ];
+      # firewall.enable = false;
+   };
 
-   # Configure network proxy if necessary
-   # networking.proxy.default = "http://user:password@proxy:port/";
-   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-   # Enable networking
-   networking.networkmanager.enable = true;
 
    # Set your time zone.
    time.timeZone = "America/Chicago";
@@ -52,19 +55,13 @@ in
       LC_TIME = "en_US.UTF-8";
    };
 
-   # Configure keymap in X11
-   # services.xserver.xkb = {
-   #    layout = "us";
-   #    variant = "";
-   # };
-
    # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.adan = {
       isNormalUser = true;
       description = "adan";
       extraGroups = [ "networkmanager" "wheel" ];
       shell = pkgs.zsh;
-      packages = with pkgs; [];
+      # packages = with pkgs; [];
    };
 
    # Allow unfree packages
@@ -80,9 +77,6 @@ in
 
       ghostty
       kitty
-      noto-fonts
-      nerd-fonts.mononoki
-      nerd-fonts.jetbrains-mono
 
       waybar
       dunst
@@ -105,26 +99,6 @@ in
       protonup
    ];
 
-   # Some programs need SUID wrappers, can be configured further or are
-   # started in user sessions.
-   # programs.mtr.enable = true;
-   # programs.gnupg.agent = {
-   #   enable = true;
-   #   enableSSHSupport = true;
-   # };
-
-   # List services that you want to enable:
-
-   # services.openssh.enable = true;
-   # services.xserver.enable = true;
-   # services.xserver.displayManager.gdm.enable = true;
-   # services.displayManager = {
-   #    autoLogin.enable = true;
-   #    autoLogin.user = "adan";
-   # };
-   # services.xserver.videoDrivers = [ "amdgpu" ];
-   # services.udisks2.enable = true;
-
    services = {
       openssh.enable = true;
       xserver = {
@@ -143,11 +117,6 @@ in
       udisks2.enable = true;
    };
 
-   # Open ports in the firewall.
-   # networking.firewall.allowedTCPPorts = [ ... ];
-   # networking.firewall.allowedUDPPorts = [ ... ];
-   # Or disable the firewall altogether.
-   # networking.firewall.enable = false;
 
    # This value determines the NixOS release from which the default
    # settings for stateful data, like file locations and database versions
@@ -158,7 +127,16 @@ in
    system.stateVersion = "24.11"; # Did you read the comment?
    system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
 
-   fonts.fontconfig.enable=true;
+   fonts = {
+      fontconfig.enable=true;
+      packages = with pkgs; [
+         nerd-fonts.symbols-only
+         font-awesome
+         noto-fonts
+         nerd-fonts.mononoki
+         nerd-fonts.jetbrains-mono
+      ];
+   };
 
    programs = {
       hyprland= {
@@ -173,11 +151,6 @@ in
          enable = true;
       };
    };
-
-   fonts.packages = with pkgs; [
-       nerd-fonts.symbols-only
-       font-awesome
-   ];
 
    environment.sessionVariables = {
       NIXOS_OZON_WL = 1;
