@@ -31,9 +31,11 @@ in
       # proxy.default = "http://user:password@proxy:port/";
       # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
       networkmanager.enable = true;
-      # firewall.allowedTCPPorts = [ ... ];
+      firewall.allowedTCPPorts = [ 22 ];
       # firewall.allowedUDPPorts = [ ... ];
       # firewall.enable = false;
+      # interfaces.enp1s0.useDHCP = true;
+      # interfaces.wlp2s0.useDHCP = true;
    };
 
 
@@ -100,7 +102,18 @@ in
    ];
 
    services = {
-      openssh.enable = true;
+      openssh = {
+         enable = true;
+         ports = [22];
+         settings = {
+            UseDns = true;
+            PasswordAuthentication = true;
+            AllowUsers = null;
+            X11Forwarding = true;
+            PermitRootLogin = "prohibit-password";
+         }
+         ;
+      };
       xserver = {
          xkb = {
             layout = "us";
