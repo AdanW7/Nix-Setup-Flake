@@ -117,6 +117,16 @@ in
          }
          ;
       };
+      avahi = {
+         enable = true;
+         openFirewall = true;
+         nssmdns = true;
+         # publish = {
+         #    enable = true;
+         #    userServices = true;
+         #    addresses = true;
+         # };
+      };
       xserver = {
          xkb = {
             layout = "us";
