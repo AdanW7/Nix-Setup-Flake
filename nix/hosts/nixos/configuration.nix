@@ -36,7 +36,7 @@ in
          2222
       ];
       # firewall.allowedUDPPorts = [ ... ];
-      firewall.enable = false;
+      firewall.enable = true;
       # interfaces.enp1s0.useDHCP = true;
       # interfaces.wlp2s0.useDHCP = true;
    };
@@ -102,6 +102,8 @@ in
 
       protontricks
       protonup
+
+      softether
    ];
 
    services = {
