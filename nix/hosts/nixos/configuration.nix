@@ -33,6 +33,7 @@ in
       networkmanager.enable = true;
       firewall.allowedTCPPorts = [ 
          22 
+         2222
       ];
       # firewall.allowedUDPPorts = [ ... ];
       firewall.enable = false;
@@ -108,6 +109,7 @@ in
          enable = true;
          ports = [
             22 
+            2222
          ];
          settings = {
             UseDns = true;
