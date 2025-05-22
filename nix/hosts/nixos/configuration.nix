@@ -35,7 +35,7 @@ in
          22 
       ];
       # firewall.allowedUDPPorts = [ ... ];
-      firewall.enable = true;
+      firewall.enable = false;
       # interfaces.enp1s0.useDHCP = true;
       # interfaces.wlp2s0.useDHCP = true;
    };
