@@ -102,15 +102,9 @@ in
       protontricks
       protonup
 
-      softether
    ];
 
    services = {
-      softether = {
-         enable = true;
-         vpnserver.enable = true;
-         dataDir = "/var/lib/softether" ;
-      };
       openssh = {
          enable = true;
          ports = [
