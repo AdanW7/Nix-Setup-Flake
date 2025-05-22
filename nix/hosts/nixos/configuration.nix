@@ -107,6 +107,11 @@ in
    ];
 
    services = {
+      softether = {
+         enable = true;
+         vpnserver.enable = true;
+         
+      };
       openssh = {
          enable = true;
          ports = [
