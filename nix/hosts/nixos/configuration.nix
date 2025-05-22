@@ -31,12 +31,11 @@ in
       # proxy.default = "http://user:password@proxy:port/";
       # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
       networkmanager.enable = true;
-      firewall.allowedTCPPorts = [ 
-         22 
-         2222
-      ];
-      # firewall.allowedUDPPorts = [ ... ];
-      firewall.enable = true;
+      firewall = {
+         allowedTCPPorts = [ 22 2222 80 443 992 1194 5555];
+         allowedUDPPorts = [ 500 4500 ];
+         enable = true;
+      };
       # interfaces.enp1s0.useDHCP = true;
       # interfaces.wlp2s0.useDHCP = true;
    };
@@ -110,7 +109,7 @@ in
       softether = {
          enable = true;
          vpnserver.enable = true;
-         
+         dataDir = "/var/lib/softether" ;
       };
       openssh = {
          enable = true;
