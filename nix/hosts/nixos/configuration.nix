@@ -22,8 +22,23 @@ in
    nix.settings.experimental-features = ["nix-command" "flakes"];
 
    # Bootloader.
-   boot.loader.systemd-boot.enable = true;
-   boot.loader.efi.canTouchEfiVariables = true;
+   boot = {
+      loader ={
+         systemd-boot = {
+            enable = false;
+         };
+         grub = {
+            enable = true;
+            device = "nodev";
+            useOSProber = true;
+            efiSupport = true;
+         };
+         efi = {
+            canTouchEfiVariables = true;
+            efiSysMountPoint = "/boot";
+         };
+      };
+   };
 
    networking = {
       hostName = "nixos";
