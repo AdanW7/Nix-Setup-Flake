@@ -23,7 +23,7 @@
       bibtex-tidy
 
       marksman
-      nil
+      nixd
       # nimlangserver
 
       cargo
