@@ -13,15 +13,30 @@ description = "Adans cross platform system flake";
       Adan-nixvim.url = "github:AdanW7/nixvim";
    };
 
-   outputs = inputs@{ nix-darwin, nixpkgs, ... }:{
+   outputs = inputs@{ nix-darwin, nixpkgs, ... }:
+      # let
+      #    systemDarwin = "aarch64-darwin";
+      #    overlays = [
+      #       (final: prev: {
+      #          libfaketime = prev.libfaketime.overrideAttrs (old: {
+      #             doCheck = false;
+      #          });
+      #       })
+      #    ];
+      # in
+         {
 
       # Build darwin flake using:
       # $ darwin-rebuild switch --flake ~/.config/nix#Adans-MacBook-Air
       darwinConfigurations."Adans-MacBook-Air" = nix-darwin.lib.darwinSystem {
          system = "aarch64-darwin";
+         # system = "systemDarwin";
          modules = [
             # ./hosts/macbook.nix
             ./hosts/mac/macbook.nix
+            # {
+            #   nixpkgs.overlays = overlays;
+            # }
          ];
          specialArgs = { inherit inputs; };
       };

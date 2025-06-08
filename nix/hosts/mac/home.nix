@@ -4,9 +4,9 @@ let
   isLinux = system == "x86_64-linux";
   username = "adan";
 
-  tex = pkgs.texlive.combine {
-    inherit (pkgs.texlive) scheme-full;
-    };
+  # tex = pkgs.texlive.combine {
+  #   inherit (pkgs.texlive) scheme-full;
+  #   };
 
    inherit (Adan-nixvim.packages.${system}) nixvim;
 
@@ -22,7 +22,7 @@ in
          nixvim
          openssl
          pkg-config
-         tex
+         # tex
 
       ];
 
