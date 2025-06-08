@@ -14,13 +14,17 @@
       cmake           
       libcxx          
 
+      #dart
+      # haskell-language-server
 
       bash-language-server
 
       texlab
       bibtex-tidy
 
+      marksman
       nil
+      # nimlangserver
 
       cargo
       rustc 
@@ -43,6 +47,8 @@
       lua-language-server
 
       # ocaml
+      #ols
+      # odin-dev
       ruff
 
       taplo-lsp
