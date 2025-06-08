@@ -19,23 +19,7 @@ in
       stateVersion = "23.05";
 
       packages = with pkgs; [
-         tex
-         clang-tools     # includes clangd, clang-tidy, clang++
-         cmake           # to generate compile_commands.json
-         libcxx          # C++ standard library headers
-         gnumake
          nixvim
-         git
-         git-credential-manager
-
-         cargo
-         rustc 
-         rust-analyzer
-         rustfmt
-
-         zig
-         zls
-
          openssl
          pkg-config
 
