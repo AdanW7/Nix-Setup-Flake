@@ -17,7 +17,6 @@
 
       bash-language-server
 
-      tex
       texlab
       bibtex-tidy
 

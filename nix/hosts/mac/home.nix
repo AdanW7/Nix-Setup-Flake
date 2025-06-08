@@ -22,6 +22,7 @@ in
          nixvim
          openssl
          pkg-config
+         tex
 
       ];
 
