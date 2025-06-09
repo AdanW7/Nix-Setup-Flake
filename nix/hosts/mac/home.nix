@@ -1,7 +1,6 @@
 { pkgs, lib, system, homeDirectory,Adan-nixvim, ... }: 
 let
   isDarwin = system == "aarch64-darwin";
-  # isLinux = system == "x86_64-linux";
   username = "adan";
 
   # tex = pkgs.texlive.combine {
@@ -49,7 +48,6 @@ in
 
       yazi = {
          enable = true;
-         # enableZshIntegration = true;
          enableZshIntegration = true;
          # shellWrapperName = "y";
 
@@ -68,6 +66,10 @@ in
                # show_hidden = true;
                # show_symlink = true;
             # };
+            mgr = {
+               show_hidden = true;
+               show_symlink = true;
+            };
             
             # preview = {}:
             # tasks = {};
@@ -117,15 +119,6 @@ in
                nix-c-dev = "nix develop github:AdanW7/nix_C_dev_flake --impure --no-write-lock-file --command $SHELL";
 
             })
-            # (lib.mkIf isLinux {
-            #    ll = "ls -l";
-            #    la = "ls -la";
-            #    nixgc = "nix-collect-garbage -d && nix store optimise";
-            #    nixsysrebuild ="sudo nixos-rebuild switch --flake ${homeDirectory}/.config/nix#nixos";
-            #    nixsysupdate = "nix flake update --flake ${homeDirectory}/.config/nix";
-            #    nixdelgen="sudo nix-env --delete-generations +2 --profile /nix/var/nix/profiles/system";
-            #    nix-c-dev = "nix develop github:AdanW7/nix_C_dev_flake --impure --no-write-lock-file --command $SHELL";
-            # })
          ];
 
 
@@ -172,12 +165,6 @@ in
                }
             '')
 
-            # Linux-specific init
-            # (lib.mkIf isLinux ''
-            #    # Zsh plugins
-            #    source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-            #    source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-            # '')
          ];
       };
    };
