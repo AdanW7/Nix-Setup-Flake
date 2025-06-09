@@ -5,7 +5,7 @@
       git-credential-manager
       git
 
-      ghostty
+      # ghostty #currenly broken
 
       yazi
    ];
