@@ -51,7 +51,7 @@ in
          enable = true;
          # enableZshIntegration = true;
          enableZshIntegration = true;
-         shellWrapperName = "y";
+         # shellWrapperName = "y";
 
          settings = {
             manager = {
