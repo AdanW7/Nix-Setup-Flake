@@ -104,7 +104,11 @@ in
                la = "ls -la";
                # ndi = "nix run nix-darwin --extra-experimental-features 'nix-command flakes' -- switch --flake ~/.config/nix";
                # ndr = "darwin-rebuild switch --flake ~/.config/nix#Adans-MacBook-Air";
-               ndr = "sudo darwin-rebuild switch --flake ${homeDirectory}/.config/nix#Adans-MacBook-Air";
+               # 
+               # ndr = "sudo darwin-rebuild switch --flake ${homeDirectory}/.config/nix#Adans-MacBook-Air";
+
+               ndr = "sudo darwin-rebuild switch --flake /Users/adan/.config/nix#Adans-MacBook-Air";
+
                nixgc = "nix-collect-garbage -d && nix store optimise";
                ndu = "nix flake update --flake ${homeDirectory}/.config/nix";
                nix-c-dev = "nix develop github:AdanW7/nix_C_dev_flake --impure --no-write-lock-file --command $SHELL";
