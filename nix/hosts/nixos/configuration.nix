@@ -14,6 +14,7 @@ in
    [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./../../modules/common.nix
+      ./../../modules/programming.nix
       inputs.home-manager.nixosModules.home-manager
    ];
 
@@ -94,7 +95,6 @@ in
       wget
       curl
 
-      ghostty
       kitty
 
       waybar

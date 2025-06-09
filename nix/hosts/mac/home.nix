@@ -22,7 +22,7 @@ in
          openssl
          pkg-config
          # tex
-         yazi
+         # yazi
 
       ];
 
@@ -30,7 +30,8 @@ in
          # Make the flake’s nvim first in $PATH:
          PATH   = "${nixvim}/bin:${pkgs.lib.makeBinPath [ pkgs.coreutils ]}:$PATH";
          # And for any $EDITOR-aware tool:
-         EDITOR = "nvim";
+         # EDITOR = "nvim";
+         EDITOR = "hx";
 
          CC = "clang";
          CXX = "clang++";

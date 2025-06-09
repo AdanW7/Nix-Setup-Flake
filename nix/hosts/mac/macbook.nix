@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./../../modules/common.nix
+    ./../../modules/programming.nix
     inputs.home-manager.darwinModules.home-manager
   ];
 
