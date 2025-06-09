@@ -22,7 +22,6 @@ in
          openssl
          pkg-config
          # tex
-         # yazi
 
       ];
 
@@ -78,6 +77,92 @@ in
          flavors = {};
          initLua = null;
          package = pkgs.yazi;
+      };
+      helix = {
+         enable = true;
+         themes = {
+            everblush_transparent = {
+               "inherits" = "everblush";
+               "ui.background" = { };
+            };
+            
+         };
+         languages = {
+            language = [
+               {
+                  name = "zig";
+                  auto-format = true;
+               }
+            ];
+         };
+         settings = {
+            theme = "";
+            editor = {
+
+               line-number = "absolute";
+               mouse = false;
+               bufferline = "always";
+
+               cursor-shape = {
+                  insert = "bar";
+                  normal = "block";
+                  select = "block";
+               };
+
+               file-picker = {
+                  hidden = false;
+               };
+
+               lsp = {
+                  display-inlay-hints = false;
+               };
+
+               auto-save = {
+                  after-delay = {
+                     enable = true;
+                     timeout = 3000;
+                  };
+                  focus-lost = true;
+               };
+
+               statusline = {
+                  left = ["mode" "file-modification-indicator" "total-line-numbers"];
+                  center = ["file-name" "read-only-indicator"];
+                  right = ["diagnostics" "selections" "register" "position" "file-encoding" "file-line-ending" "file-type"];
+                  separator = "│";
+                  mode.normal = "NORMAL";
+                  mode.insert = "INSERT";
+                  mode.select = "SELECT";
+
+               };
+
+               whitespace = {
+                  render = {
+                     space = "all";
+                     tab = "all";
+                     nbsp = "none";
+                     nnbsp = "none";
+                     newline = "none";
+                  };
+
+                  characters = {
+                     space = "·";
+                     nbsp = "⍽";
+                     nnbsp = "␣";
+                     tab = "→";
+                     newline = "⏎";
+                     tabpad = "·";# Tabs will look like "→···" (depending on tab width)
+                  };
+               };
+            };
+            keys = {
+               normal = {
+                  esc = ["collapse_selection" "keep_primary_selection"];
+               };
+            };
+         };
+         ignores = [];
+         extraPackages = [];
       };
 
       zsh = {
