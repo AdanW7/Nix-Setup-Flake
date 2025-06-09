@@ -50,8 +50,11 @@ in
       yazi = {
          enable = true;
          # enableZshIntegration = true;
+         enableZshIntegration = true;
+         shellWrapperName = "y";
+
          settings = {
-            # manager = {
+            manager = {
             #    ratio = [
             #       1
             #       4
@@ -62,9 +65,9 @@ in
             #    sort_reverse = false;
             #    sort_dir_first = true;
             #    linemode = "none";
-            #    show_hidden = true;
-            #    show_symlink = true;
-            # };
+               show_hidden = true;
+               show_symlink = true;
+            };
             
             # preview = {}:
             # tasks = {};
@@ -125,38 +128,48 @@ in
             })
          ];
 
+
          initContent  = lib.mkMerge [
 
             # Mac-specific init
             (lib.mkIf isDarwin ''
-              # Exports
-              # export PATH="$PATH:/Users/adan/.local/bin"
-              export PATH="$PATH:/Users/${username}/.local/bin"
-              export PATH="$PATH:/opt/homebrew/bin"
-              export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$PKG_CONFIG_PATH"
+                 # Exports
+                 # export PATH="$PATH:/Users/adan/.local/bin"
+                 export PATH="$PATH:/Users/${username}/.local/bin"
+                 export PATH="$PATH:/opt/homebrew/bin"
+                 export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 
-              # Zsh plugins
-              source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-              source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+                 # Zsh plugins
+                 source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+                 source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-              # >>> conda initialize >>>
-              # !! Contents within this block are managed by 'conda init' !!
-              # __conda_setup="$('/Users/adan/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-              __conda_setup="$('/Users/${username}/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-              if [ $? -eq 0 ]; then
-                  eval "$__conda_setup"
-              else
-                  # if [ -f "/Users/adan/miniconda3/etc/profile.d/conda.sh" ]; then
-                  if [ -f "/Users/${username}/miniconda3/etc/profile.d/conda.sh" ]; then
-                      # . "/Users/adan/miniconda3/etc/profile.d/conda.sh"
-                      . "/Users/${username}/miniconda3/etc/profile.d/conda.sh"
-                  else
-                      # export PATH="/Users/adan/miniconda3/bin:$PATH"
-                      export PATH="/Users/${username}/miniconda3/bin:$PATH"
-                  fi
-              fi
-              unset __conda_setup
+                 # >>> conda initialize >>>
+                 # !! Contents within this block are managed by 'conda init' !!
+                 # __conda_setup="$('/Users/adan/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+                 __conda_setup="$('/Users/${username}/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+                 if [ $? -eq 0 ]; then
+                     eval "$__conda_setup"
+                 else
+                     # if [ -f "/Users/adan/miniconda3/etc/profile.d/conda.sh" ]; then
+                     if [ -f "/Users/${username}/miniconda3/etc/profile.d/conda.sh" ]; then
+                         # . "/Users/adan/miniconda3/etc/profile.d/conda.sh"
+                         . "/Users/${username}/miniconda3/etc/profile.d/conda.sh"
+                     else
+                         # export PATH="/Users/adan/miniconda3/bin:$PATH"
+                         export PATH="/Users/${username}/miniconda3/bin:$PATH"
+                     fi
+                 fi
+                 unset __conda_setup
+
+               #yazi setup
+               function y() {
+                  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+                  yazi "$@" --cwd-file="$tmp"
+                  IFS= read -r -d '''' cwd < "$tmp"
+                  [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+                  rm -f -- "$tmp"
+               }
             '')
 
             # Linux-specific init
