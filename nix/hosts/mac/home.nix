@@ -107,11 +107,9 @@ in
             (lib.mkIf isDarwin {
                ll = "ls -l";
                la = "ls -la";
-               # ndi = "nix run nix-darwin --extra-experimental-features 'nix-command flakes' -- switch --flake ~/.config/nix";
-               # ndr = "darwin-rebuild switch --flake ~/.config/nix#Adans-MacBook-Air";
-               # 
-               # ndr = "sudo darwin-rebuild switch --flake ${homeDirectory}/.config/nix#Adans-MacBook-Air";
 
+               # for some reason i have to hard code in the path for rebuild but nod needed for update
+               # ndr = "sudo darwin-rebuild switch --flake ${homeDirectory}/.config/nix#Adans-MacBook-Air";
                ndr = "sudo darwin-rebuild switch --flake /Users/adan/.config/nix#Adans-MacBook-Air";
 
                nixgc = "nix-collect-garbage -d && nix store optimise";
