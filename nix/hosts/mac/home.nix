@@ -23,6 +23,7 @@ in
          openssl
          pkg-config
          # tex
+         yazi
 
       ];
 
@@ -45,6 +46,36 @@ in
         # Let home-manager install and manage itself.
 
       home-manager.enable = true;
+
+      yazi = {
+         enable = true;
+         # enableZshIntegration = true;
+         settings = {
+            # manager = {
+            #    ratio = [
+            #       1
+            #       4
+            #       3
+            #    ];
+            #    sort_by = "natural";
+            #    sort_sensitive = true;
+            #    sort_reverse = false;
+            #    sort_dir_first = true;
+            #    linemode = "none";
+            #    show_hidden = true;
+            #    show_symlink = true;
+            # };
+            
+            # preview = {}:
+            # tasks = {};
+            keymap = {};
+            theme = {};
+            yazi = {};
+         };
+         flavors = {};
+         initLua = null;
+         package = pkgs.yazi;
+      };
 
       zsh = {
          enable = true;
