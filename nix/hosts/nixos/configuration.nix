@@ -152,10 +152,10 @@ in
             variant = "";
          };
          enable = true;
-         displayManager.gdm.enable = true;
          videoDrivers = [ "amdgpu" ];
       };
       displayManager = {
+         gdm.enable = true;
          autoLogin.enable = true;
          autoLogin.user = "adan";
       };
