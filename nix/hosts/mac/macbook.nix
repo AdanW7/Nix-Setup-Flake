@@ -27,6 +27,7 @@ in
          system = "aarch64-darwin";
          homeDirectory = "/Users/${username}";
          inherit (inputs) Adan-nixvim;
+         inherit (inputs) everforest-medium-yazi;
       };
    };
   programs.zsh.enable = true;

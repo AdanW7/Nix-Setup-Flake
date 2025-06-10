@@ -1,4 +1,4 @@
-{ pkgs, lib, system, homeDirectory,Adan-nixvim, ... }: 
+{ pkgs, lib, system, homeDirectory,Adan-nixvim,everforest-medium-yazi, ... }: 
 let
   isDarwin = system == "aarch64-darwin";
   username = "adan";
@@ -111,8 +111,11 @@ in
             #       { fg = "#CD9EFC"; mime = "application/bzip"; }
             #    ];
             # };
+            flavor = "everforest-medium";
          };
-         flavors = {};
+         flavors = {
+            everforest-medium = everforest-medium-yazi;
+         };
          initLua = null;
          package = pkgs.yazi;
       };
