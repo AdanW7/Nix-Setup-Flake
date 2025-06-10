@@ -25,7 +25,8 @@ in
       users.${username} = import ./home.nix {
          inherit pkgs lib;
          system = "aarch64-darwin";
-         homeDirectory = "/Users/${username}";
+         # homeDirectory = "/Users/${username}";
+         username = username;
          inherit (inputs) Adan-nixvim;
       };
    };

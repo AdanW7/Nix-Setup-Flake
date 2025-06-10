@@ -1,11 +1,13 @@
-{ pkgs, lib, system, homeDirectory,Adan-nixvim, ... }: 
+{ pkgs, lib, system, username,Adan-nixvim, ... }: 
 let
   isDarwin = system == "aarch64-darwin";
-  username = "adan";
-  # Woods = import ./../../modules/helix_themes/Woods.nix;
-  yaziConfig = import ./../../modules/yazi.nix;
+  # username = "adan";
+  homeDirectory = "/Users/${username}";
 
-  helixConfig = import ./../../modules/helix.nix;
+  yaziConfig = import ./../../modules/yazi.nix { inherit pkgs; };
+
+  helixConfig = import ./../../modules/helix.nix { inherit pkgs; };
+
   # tex = pkgs.texlive.combine {
   #   inherit (pkgs.texlive) scheme-full;
   #   };
@@ -48,101 +50,7 @@ in
 
    programs = {
         # Let home-manager install and manage itself.
-
       home-manager.enable = true;
-
-      # helix = {
-      #    enable = true;
-      #    themes = {
-      #       Woods = Woods;
-            
-      #    };
-      #    languages = {
-      #       language = [
-      #          {
-      #             name = "zig";
-      #             auto-format = true;
-      #          }
-      #          {
-      #             name = "rust";
-      #             auto-format = false;
-      #          }
-      #       ];
-      #    };
-      #    settings = {
-      #       theme = "Woods";
-      #       editor = {
-      #          color-modes = true;
-      #          line-number = "absolute";
-      #          mouse = false;
-      #          bufferline = "always";
-
-      #          cursor-shape = {
-      #             insert = "bar";
-      #             normal = "block";
-      #             select = "block";
-      #          };
-
-      #          file-picker = {
-      #             hidden = false;
-      #          };
-
-      #          lsp = {
-      #             display-inlay-hints = false;
-      #          };
-
-      #          auto-save = {
-      #             after-delay = {
-      #                enable = true;
-      #                timeout = 3000;
-      #             };
-      #             focus-lost = true;
-      #          };
-
-      #          statusline = {
-      #             left = ["mode" "file-modification-indicator" "total-line-numbers"];
-      #             center = ["file-name" "read-only-indicator"];
-      #             right = ["diagnostics" "selections" "register" "position" "file-encoding" "file-line-ending" "file-type"];
-      #             separator = "│";
-      #             mode.normal = "NORMAL";
-      #             mode.insert = "INSERT";
-      #             mode.select = "SELECT";
-
-      #          };
-
-      #          whitespace = {
-      #             render = {
-      #                space = "all";
-      #                tab = "all";
-      #                nbsp = "none";
-      #                nnbsp = "none";
-      #                newline = "none";
-      #             };
-
-      #             characters = {
-      #                space = "·";
-      #                nbsp = "⍽";
-      #                nnbsp = "␣";
-      #                tab = "→";
-      #                newline = "⏎";
-      #                tabpad = "·";# Tabs will look like "→···" (depending on tab width)
-      #             };
-      #          };
-      #          indent-guides = {
-      #             render = true;
-      #             character = "╎"; # Some characters that work well: "╎" "▏", "┆", "┊", "⸽"
-      #             skip-levels = 1;
-      #          };
-      #       };
-      #       keys = {
-      #          normal = {
-      #             esc = ["collapse_selection" "keep_primary_selection"];
-      #          };
-      #       };
-      #    };
-      #    ignores = [];
-      #    extraPackages = [];
-      # };
 
       zsh = {
          enable = true;

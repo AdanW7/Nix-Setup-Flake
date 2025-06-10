@@ -1,4 +1,4 @@
-{ ... }:let
+{ pkgs,... }:let
 Wodzi = import ./helix_themes/Woods.nix;
 
 in{
