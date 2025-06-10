@@ -11,8 +11,6 @@ description = "Adans cross platform system flake";
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
       Adan-nixvim.url = "github:AdanW7/nixvim";
-
-      everforest-medium-yazi.url = "https://github.com/Chromium-3-Oxide/everforest-medium.yazi";
    };
 
    outputs = inputs@{ nix-darwin, nixpkgs, ... }:{
