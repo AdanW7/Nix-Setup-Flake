@@ -103,21 +103,116 @@ in
          };
 
          theme = {
-            # filetype = {
-            #    rules = [
-            #       { fg = "#7AD9E5"; mime = "image/*"; }
-            #       { fg = "#F3D398"; mime = "video/*"; }
-            #       { fg = "#F3D398"; mime = "audio/*"; }
-            #       { fg = "#CD9EFC"; mime = "application/bzip"; }
-            #    ];
-            # };
             flavor = {
-               light = "moonfly";
-               dark = "moonfly";
+               light = "monokai-vibrant";
+               dark = "monokai-vibrant";
+               # light = "moonfly";
+               # dark = "moonfly";
                # light = "ayu-dark";
                # dark = "ayu-dark";
             };
+            tabs = {
+               inactive = { fg = "#f2b5a7"; bg = "#505557" ;};
+               active   = { fg="#505557"; bg = "#f2b5a7"; bold = true; underline = true; };
+               sep_inner = { open = ""; close = ""; };
+               sep_outer = { open = ""; close = ""; };
+            };
+            mgr = {
+               border_style = {fg="#505557";};
+               
+            };
+            
+            status = {
+               sep_left = { open = ""; close = ""; };
+               sep_right = { open = ""; close = ""; };
+            };
+            mode = {
+               normal_main = { fg ="#505557";bg = "#5de6a8"; bold = true; };
+               normal_alt  = { fg = "#5de6a8"; bg = "#505557"; };
+
+               # Select mode
+               select_main = { fg ="#505557";bg = "#FF6961"; bold = true; };
+               select_alt  = { fg = "#FF6961"; bg = "#505557"; };
+
+               # Unset mode
+               unset_main = { fg ="#505557";bg = "red"; bold = true; };
+               unset_alt  = { fg = "red"; bg = "#505557"; };
+            };
+            filetype = {
+               rules = [
+                  { mime = "image/*"; fg = "#FFD945"; }
+                  { mime = "{audio,video}/*"; fg = "#eb5086"; }
+
+                  { mime = "application/{,g}zip"; fg = "#FF3F4F"; }
+                  { mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}"; fg = "#FF3F4F"; }
+                  { mime = "application/{pdf,doc,rtf,vnd.*}"; fg = "#24b3f0"; }
+
+                  { name = "*.sh"; is = "exec"; fg = "#f2d75e"; }  # exec .sh
+                  { name = "*.sh"; fg = "#f26fe1"; } # non-exec .sh
+
+                  #archives
+                  { name = "*.tar"; fg = "#FF3F4F"; }           # TAR archives (red)
+                  { name = "*.xz"; fg = "#FF3F4F"; }            # XZ compressed (red)
+                  { name = "*.dmg"; fg = "#007aff"; }           # macOS disk images (blue)
+                  { name = "*.deb"; fg = "#a80030"; }           # Debian packages (red)
+                  { name = "*.rpm"; fg = "#ee0000"; }           # RPM packages (red)
+
+                  # programming languages
+                  { name = "*.zig"; fg = "#F7A41D"; }
+                  { name = "*.{h,hpp}"; fg = "#9976bf"; }# C headers
+                  { name = "*.{c,cpp}"; fg = "#6c9cf8"; } # C files
+                  { name = "*.py"; fg = "#3776ab"; }     # Python (official blue)
+                  { name = "*.rs"; fg = "#ce422b"; }     # Rust (official orange-red)
+                  { name = "*.js"; fg = "#f7df1e"; }     # JavaScript (yellow)
+                  { name = "*.ts"; fg = "#3178c6"; }     # TypeScript (blue)
+                  { name = "*.go"; fg = "#00add8"; }     # Go (cyan)
+                  { name = "*.java"; fg = "#ed8b00"; }   # Java (orange)
+                  { name = "*.rb"; fg = "#cc342d"; }     # Ruby (red)
+                  { name = "*.php"; fg = "#777bb4"; }    # PHP (purple)
+                  { name = "*.swift"; fg = "#fa7343"; }  # Swift (orange)
+                  { name = "*.kt"; fg = "#7f52ff"; }     # Kotlin (purple)
+                  { name = "*.nix"; fg = "#7ebae4"; }           # Nix (light blue)
+               
+                  # Web/Config Files:
+                  { name = "*.{html,htm}"; fg = "#e34f26"; }    # HTML (orange)
+                  { name = "*.css"; fg = "#1572b6"; }           # CSS (blue)
+                  { name = "*.wasm"; fg = "#654ff0"; }          # WebAssembly (purple)
+                  { name = "*.{json,jsonc}"; fg = "#ffd500"; }  # JSON (yellow)
+                  { name = "*.{yml,yaml}"; fg = "#cb171e"; }    # YAML (red)
+                  { name = "*.toml"; fg = "#9c4221"; }          # TOML (brown)
+                  { name = "*.xml"; fg = "#0060ac"; }           # XML (blue)
+                  { name = "*.lock"; fg = "#6c7086"; }          # Lock files (grey)
+
+                  #Data/Config:
+                  { name = "*.csv"; fg = "#217346"; }           # CSV (green)
+                  { name = "*.log"; fg = "#6c7086"; }           # Log files (grey)
+                  { name = "*.ini"; fg = "#d4af37"; }           # INI config (gold)
+                  { name = "*.conf"; fg = "#d4af37"; }          # Config files (gold)
+
+                  #Text/Documentation:
+                  { name = "*.{md,markdown}"; fg = "#083fa1"; } # Markdown (blue)
+                  { name = "*.txt"; fg = "#89e051"; }           # Text files (green)
+                  { name = "*.tex"; fg = "#3d6117"; }           # LaTeX (dark green)                  
+
+                  #System/Build Files:
+                  { name = "Makefile"; fg = "#427819"; }        # Makefiles (green)
+                  { name = "Dockerfile*"; fg = "#2496ed"; }     # Docker (blue)
+                  { name = "*.cmake"; fg = "#064f8c"; }         # CMake (dark blue)
+
+                  # System/Hidden Files:
+                  { name = ".env*"; fg = "#ecd53f"; }           # Environment files (yellow)
+                  { name = ".git*"; fg = "#f14e32"; }           # Git files (red)
+                  
+                  #misc
+                  { name = "*/"; fg = "#5de6a8"; } # folders
+                  { name = "*"; is = "orphan"; fg = "#FF3F4F"; }
+                  { name = "*"; is = "exec"; fg = "#f2d75e"; } #executable files
+
+
+               ];
+            };
          };
+
          flavors = {
             ayu-dark = fetchTarball {
               url = "https://github.com/kmlupreti/ayu-dark.yazi/archive/refs/heads/main.tar.gz";
@@ -126,6 +221,10 @@ in
             moonfly = fetchTarball{
                url ="https://github.com/tkapias/moonfly.yazi/archive/refs/heads/main.tar.gz";
                sha256 = "sha256-9K2e+wodG3XOdcKgPJA4fYZCXZylWRTRM1IHrc+I7bw=";
+            };
+            monokai-vibrant = fetchTarball{
+               url ="https://github.com/sanjinso/monokai-vibrant.yazi/archive/refs/heads/main.tar.gz";
+               sha256 = "sha256-f3IaeDJ4gZf5glk4RIVQ1/DqH0ON2Sv5UzGvdAnLEbw=";
             };
          };
          initLua = null;
