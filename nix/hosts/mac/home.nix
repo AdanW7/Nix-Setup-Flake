@@ -111,8 +111,14 @@ in
             #       { fg = "#CD9EFC"; mime = "application/bzip"; }
             #    ];
             # };
+            flavor = "ayu";
          };
-         flavors = {};
+         flavors = {
+            ayu = pkgs.fetchTarball {
+              url = "https://github.com/kmlupreti/ayu-dark.yazi/archive/refs/heads/main.tar.gz";
+              sha256 = "sha256-0zlk68n6b1x326z46mjwhpd3yxp1z3xk7nw8cafnz3yj2miqr3j5"; # fill in
+            };
+         };
          initLua = null;
          package = pkgs.yazi;
       };
