@@ -111,12 +111,19 @@ in
             #       { fg = "#CD9EFC"; mime = "application/bzip"; }
             #    ];
             # };
-            flavor = "ayu";
+            flavor = {
+               light = "ayu-dark";
+               dark = "ayu-dark";
+            };
          };
          flavors = {
-            ayu = fetchTarball {
+            ayu-dark = fetchTarball {
               url = "https://github.com/kmlupreti/ayu-dark.yazi/archive/refs/heads/main.tar.gz";
               sha256 = "sha256-RY6MYxXSj2+dYojbM/v44XY/2oVcVkO+EaOHZSwyk34="; # fill in
+            };
+            moonfly = fetchTarball{
+               url ="https://github.com/tkapias/moonfly.yazi/archive/refs/heads/main.tar.gz";
+               sha256 = "sha256-9K2e+wodG3XOdcKgPJA4fYZCXZylWRTRM1IHrc+I7bw=";
             };
          };
          initLua = null;
