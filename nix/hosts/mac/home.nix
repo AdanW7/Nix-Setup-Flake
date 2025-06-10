@@ -112,8 +112,10 @@ in
             #    ];
             # };
             flavor = {
-               light = "ayu-dark";
-               dark = "ayu-dark";
+               light = "moonfly";
+               dark = "moonfly";
+               # light = "ayu-dark";
+               # dark = "ayu-dark";
             };
          };
          flavors = {
