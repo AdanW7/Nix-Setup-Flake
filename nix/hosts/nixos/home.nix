@@ -57,6 +57,7 @@ in
          # gamemode
          tmux
          # tmux-sessionizer
+         ghostty
 
       ];
 
