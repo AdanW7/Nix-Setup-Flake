@@ -1,7 +1,5 @@
 { pkgs, lib, system, username,homeDirectory,Adan-nixvim, ... }: 
 let
-  # isDarwin = system == "aarch64-darwin";
-  # homeDirectory = "/Users/${username}";
 
    yaziConfig = import ./../../modules/yazi.nix {
       inherit pkgs;
@@ -61,7 +59,7 @@ in
   ];
 
    programs = {
-        # Let home-manager install and manage itself.
+      # Let home-manager install and manage itself.
       home-manager.enable = true;
    };
 
