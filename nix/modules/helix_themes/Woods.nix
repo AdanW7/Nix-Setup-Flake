@@ -1,8 +1,8 @@
 {
   "attribute" = { fg = "blue"; };
-  "comment" = { fg = "comment"; modifiers = [ "italic" ]; };
+  "comment" = { fg = "light-comment"; modifiers = [ "italic" ]; };
   "constant" = { fg = "cyan"; };
-  "constant.builtin.boolean" = { fg = "cyan"; };
+  "constant.builtin.boolean" = { fg = "cyan"; modifiers = [ "bold" ];};
   "constant.character" = { fg = "blue"; };
   "constant.numeric.float" = { fg = "black-light"; };
   "constant.builtin" = { fg = "blue"; };
@@ -19,15 +19,16 @@
   "keyword.control.import" = { fg = "red-light"; };
   "keyword.control.return" = { fg = "blue"; };
   "keyword.control.repeat" = { fg = "yellow-light"; };
-  "keyword.control.exception" = { fg = "black-light"; };
+  "keyword.control.exception" = { fg = "magenta"; };
+  "keyword.directive"={fg = "magenta";};
   "label" = { fg = "blue"; };
   "namespace" = { fg = "red-light"; };
   "operator" = { fg = "white"; };
   # "parameter.reference" = { fg = "red-light"; };
   # "property" = { fg = "red"; };
-  "punctuation.bracket" = { fg = "white"; };
-  "punctuation.delimiter" = { fg = "white"; };
-  "punctuation.special" = { fg = "white"; };
+  "punctuation.bracket" = { fg = "mint"; };
+  "punctuation.delimiter" = { fg = "mint"; };
+  "punctuation.special" = { fg = "mint"; };
   "string" = { fg = "green"; };
   "string.escape" = { fg = "blue"; };
   "string.regex" = { fg = "green"; };
@@ -36,39 +37,43 @@
   "tag" = { fg = "blue"; };
   "type" = { fg = "yellow"; };
   "type.builtin" = { fg = "yellow"; };
-  "variable" = { fg = "white"; };
+  "variable" = { fg = "peach"; };
   "variable.builtin" = { fg = "blue"; };
   "variable.parameter" = { fg = "red"; };
   "variable.other.member" = { fg = "red"; };
 
-  "diff.plus" = { fg = "blue"; };
+  "diff.plus" = { fg = "green"; };
   "diff.delta" = { fg = "magenta"; };
   "diff.minus" = { fg = "red"; };
 
-  "ui.background" = { fg = "foreground"; bg = "none"; };
+  "ui.background" = { fg = "foreground"; bg = "none"; };#none makes background transparent
   "ui.cursor" = { modifiers = [ "reversed" ]; };
+  "ui.cursor.match" = { fg = "black"; bg = "lavendar";};
   "ui.cursorline.primary" = { bg = "cursorline"; };
-  "ui.help" = { fg = "foreground"; bg = "contrast"; };
-  "ui.linenr" = { fg = "comment"; };
-  "ui.linenr.selected" = { fg = "foreground"; };
-  "ui.menu" = { fg = "foreground"; bg = "contrast"; };
-  "ui.menu.selected" = { bg = "black"; };
-  "ui.popup" = { fg = "foreground"; bg = "contrast"; };
+  "ui.help" = { fg = "foreground"; bg = "none"; };
+  "ui.linenr" = { fg = "yellow"; };
+  "ui.linenr.selected" = { fg = "cyan"; };
+  "ui.menu" = { fg = "blue"; bg = "none"; };
+  "ui.menu.selected" = { fg = "black"; bg = "comment"; };
+  "ui.popup" = { fg = "foreground"; bg = "none"; };
   "ui.selection" = { bg = "grey"; };
   "ui.selection.primary" = { bg = "grey"; };
-  "ui.statusline" = { fg = "foreground"; bg = "background"; };
-  "ui.statusline.inactive" = { fg = "foreground"; bg = "background"; };
-  "ui.statusline.normal" = { fg = "white"; bg = "background"; };
-  "ui.statusline.insert" = { fg = "blue"; bg = "background"; };
-  "ui.statusline.select" = { fg = "magenta"; bg = "background"; };
+  "ui.statusline" = { fg = "white"; bg = "commment"; };
+  "ui.statusline.inactive" = { fg = "black"; bg = "comment"; };
+  "ui.statusline.normal" = { fg = "black"; bg = "blue"; modifiers = [ "bold" "italic" ];};
+  "ui.statusline.insert" = { fg = "black"; bg = "yellow";modifiers = [ "bold" "italic" ]; };
+  "ui.statusline.select" = { fg = "black"; bg = "red";modifiers = [ "bold" "italic" ]; };
+  "ui.bufferline" = {fg = "white"; bg = "none";};
+  "ui.bufferline.active" = {fg = "black"; bg = "blue";modifiers = [ "bold" ];};
+  "ui.bufferline.background" = {bg = "none";};
   "ui.text" = { fg = "foreground"; };
   "ui.text.focus" = { fg = "blue"; };
   "ui.virtual.ruler" = { bg = "cursorline"; };
-  "ui.virtual.whitespace" = { fg = "comment"; };
+  "ui.virtual.whitespace" = { fg = "dark-comment"; };
   "ui.virtual.wrap" = { fg = "comment"; };
-  "ui.virtual.indent-guide" = { fg = "comment"; };
+  "ui.virtual.indent-guide" = { fg = "dark-comment"; };
   "ui.virtual.inlay-hint" = { fg = "comment"; };
-  "ui.window" = { fg = "black"; };
+  "ui.window" = { fg = "comment"; };
 
   "error" = { fg = "red"; };
   "hint" = { fg = "green"; };
@@ -111,11 +116,18 @@
     magenta-light = "#ce89df";
     cyan-light = "#67cbe7";
     white-light = "#bdc3c2";
-    comment = "#404749";
+    dark-comment = "#404749";
+    comment = "#7a7c7e";
+    light-comment = "#8a8c8e";
     contrast = "#161d1f";
     background = "#141b1e";
     foreground = "#dadada";
     cursorline = "#2c3333";
+    mint = "#5de6a8";
+    lavendar = "#c8a8e8";
+    soft-teal = "#a8d4d4";
+    peach = "#f2b5a7";
+    orange = "#ffb366";
   };
 
 }

@@ -2,7 +2,7 @@
 let
   isDarwin = system == "aarch64-darwin";
   username = "adan";
-  everblush_transparent = import ./../../modules/helix_themes/everblush_transparent.nix;
+  Woods = import ./../../modules/helix_themes/Woods.nix;
 
   # tex = pkgs.texlive.combine {
   #   inherit (pkgs.texlive) scheme-full;
@@ -120,7 +120,7 @@ in
       helix = {
          enable = true;
          themes = {
-            everblush_transparent = everblush_transparent;
+            Woods = Woods;
             
          };
          languages = {
@@ -136,9 +136,9 @@ in
             ];
          };
          settings = {
-            theme = "everblush_transparent";
+            theme = "Woods";
             editor = {
-
+               color-modes = true;
                line-number = "absolute";
                mouse = false;
                bufferline = "always";
@@ -193,6 +193,11 @@ in
                      newline = "⏎";
                      tabpad = "·";# Tabs will look like "→···" (depending on tab width)
                   };
+               };
+               indent-guides = {
+                  render = true;
+                  character = "╎"; # Some characters that work well: "╎" "▏", "┆", "┊", "⸽"
+                  skip-levels = 1;
                };
             };
             keys = {
