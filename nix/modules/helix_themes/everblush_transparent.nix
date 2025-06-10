@@ -1,4 +1,4 @@
-{}:{
+{
   "attribute" = { fg = "blue"; };
   "comment" = { fg = "comment"; modifiers = [ "italic" ]; };
   "constant" = { fg = "cyan"; };
@@ -54,8 +54,8 @@
   "ui.menu" = { fg = "foreground"; bg = "contrast"; };
   "ui.menu.selected" = { bg = "black"; };
   "ui.popup" = { fg = "foreground"; bg = "contrast"; };
-  "ui.selection" = { bg = "black"; };
-  "ui.selection.primary" = { bg = "black"; };
+  "ui.selection" = { bg = "grey"; };
+  "ui.selection.primary" = { bg = "grey"; };
   "ui.statusline" = { fg = "foreground"; bg = "background"; };
   "ui.statusline.inactive" = { fg = "foreground"; bg = "background"; };
   "ui.statusline.normal" = { fg = "white"; bg = "background"; };
@@ -94,6 +94,7 @@
   "markup.raw" = { fg = "cyan"; };
 
   palette = {
+    grey = "#505557";
     black = "#232a2d";
     red = "#e57474";
     green = "#8ccf7e";
