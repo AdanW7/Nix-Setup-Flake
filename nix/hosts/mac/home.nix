@@ -114,9 +114,9 @@ in
             flavor = "ayu";
          };
          flavors = {
-            ayu = pkgs.fetchTarball {
+            ayu = fetchTarball {
               url = "https://github.com/kmlupreti/ayu-dark.yazi/archive/refs/heads/main.tar.gz";
-              sha256 = "sha256-0zlk68n6b1x326z46mjwhpd3yxp1z3xk7nw8cafnz3yj2miqr3j5"; # fill in
+              sha256 = "sha256-RY6MYxXSj2+dYojbM/v44XY/2oVcVkO+EaOHZSwyk34="; # fill in
             };
          };
          initLua = null;
