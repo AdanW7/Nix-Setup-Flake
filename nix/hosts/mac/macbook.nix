@@ -26,6 +26,7 @@ in
          inherit pkgs lib;
          system = "aarch64-darwin";
          username = username;
+         homeDirectory = "/Users/${username}";
          inherit (inputs) Adan-nixvim;
       };
    };

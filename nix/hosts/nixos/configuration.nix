@@ -210,6 +210,7 @@ in
       users.${username} = import ./home.nix {
          inherit pkgs lib;
          system = "x86_64-linux";
+         username = username;
          homeDirectory = "/home/${username}";
          inherit (inputs) Adan-nixvim;
       };
