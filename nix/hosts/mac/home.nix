@@ -50,35 +50,73 @@ in
       yazi = {
          enable = true;
          enableZshIntegration = true;
-         # shellWrapperName = "y";
+         shellWrapperName = "y";
 
          settings = {
             mgr = {
-               ratio = [
-                  1
-                  4
-                  3
+               ratio = [#Manager layout by ratio, 3-element array.
+                  1 # left -> 1/8
+                  4 # middle -> 4/8
+                  3 # right -> 3/8
                ];
-               sort_by = "natural";
-               sort_sensitive = true;
-               sort_reverse = false;
-               sort_dir_first = true;
-               linemode = "none";
+               sort_by = "natural";# File sorting method.
+               sort_sensitive = true; #Sort case-sensitively.
+               sort_reverse = false;# Display files in reverse order.
+               sort_dir_first = true;#Display directories first.
+               linemode = "none";#Line mode: display information associated with the file on the right side of the file list row.
 
-               show_hidden = true;
-               show_symlink = true;
+               show_hidden = true;# show hidden files
+               show_symlink = true; #Show the path of the symlink file point to, after the filename.
             };
             
-            # preview = {}:
+            preview = {
+               wrap = "yes";
+               image_filter = "catmull-rom"; #The filter used on image downscaling, lanczos3 is hightest quality but slowest
+               image_quality = 75;#Quality on pre-caching images, range 50-90., higher range = better quality but slower
+               ueberzug_scale = 1;#ueberzug_scale (Float): Ueberzug image scaling ratio, scale>1 for enlargement, scale<1 for reduction.
+               ueberzug_offset = [0 0 0 0];# ueberzug_offset (float) ([x, y, width, height]):
+               tab_size = 2;#The width of a tab character (\t) in spaces.
+               max_width = 600;# Maximum preview width for images
+               max_height = 900;#Maximum preview height for images
+               cache_dir = "";
+               image_delay = 30;# Wait for at least the specified milliseconds before starting to send image preview data to the terminal.
+            };
             # tasks = {};
-            keymap = {};
-            theme = {};
-            yazi = {};
+            # opener = {};
+            input = {
+               cursor_blink = true;
+            };
+         };
+
+         keymap = {
+            # input.prepend_keymap = [
+            #    { run = "close"; on = [ "<C-q>" ]; }
+            #    { run = "close --submit"; on = [ "<Enter>" ]; }
+            #    { run = "escape"; on = [ "<Esc>" ]; }
+            #    { run = "backspace"; on = [ "<Backspace>" ]; }
+            # ];
+            # mgr.prepend_keymap = [
+            #    { run = "escape"; on = [ "<Esc>" ]; }
+            #    { run = "quit"; on = [ "q" ]; }
+            #    { run = "close"; on = [ "<C-q>" ]; }
+            # ];
+         };
+
+         theme = {
+            # filetype = {
+            #    rules = [
+            #       { fg = "#7AD9E5"; mime = "image/*"; }
+            #       { fg = "#F3D398"; mime = "video/*"; }
+            #       { fg = "#F3D398"; mime = "audio/*"; }
+            #       { fg = "#CD9EFC"; mime = "application/bzip"; }
+            #    ];
+            # };
          };
          flavors = {};
          initLua = null;
          package = pkgs.yazi;
       };
+
       helix = {
          enable = true;
          themes = {
