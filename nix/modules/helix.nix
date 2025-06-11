@@ -88,6 +88,14 @@ in{
             keys = {
                normal = {
                   esc = ["collapse_selection" "keep_primary_selection"];
+                  "C-y" = {
+                     # Open the file(s) in the current window
+                     y = ":sh zellij run -n Yazi -c -f -x 10% -y 10% --width 80% --height 80% -- bash -c 'paths=$(yazi --chooser-file=/dev/stdout); if [[ -n \"$paths\" ]]; then zellij action toggle-floating-panes; sleep 0.1; zellij action write 27; zellij action write-chars \":open $paths\"; zellij action write 13; else zellij action toggle-floating-panes; fi'";
+                     # Open the file(s) in a vertical split
+                     v = ":sh zellij run -n Yazi -c -f -x 10% -y 10% --width 80% --height 80% -- bash -c 'paths=$(yazi --chooser-file=/dev/stdout); if [[ -n \"$paths\" ]]; then zellij action toggle-floating-panes; sleep 0.1; zellij action write 27; zellij action write-chars \":vsplit $paths\"; zellij action write 13; else zellij action toggle-floating-panes; fi'";
+                     # Open the file(s) in a horizontal split
+                     h = ":sh zellij run -n Yazi -c -f -x 10% -y 10% --width 80% --height 80% -- bash -c 'paths=$(yazi --chooser-file=/dev/stdout); if [[ -n \"$paths\" ]]; then zellij action toggle-floating-panes; sleep 0.1; zellij action write 27; zellij action write-chars \":hsplit $paths\"; zellij action write 13; else zellij action toggle-floating-panes; fi'";
+                  };
                };
             };
          };
