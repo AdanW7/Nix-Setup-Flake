@@ -1,8 +1,5 @@
 
 { pkgs, ... }:
-let
-      yaziLua = import ./../../modules/yazi_lua/init.lua;
-in
 {
    programs.yazi = {
       enable = true;
@@ -185,7 +182,26 @@ in
          };
       };
       
-      initLua = yaziLua;
+      initLua = ''
+        -- enable username and hostname at tope left of screen before directory
+        if Header and Header.children_add then
+          Header:children_add(function()
+            if ya.target_family() ~= "unix" then
+              return ""
+            end
+            return ui.Span(ya.user_name() .. "@" .. ya.host_name() .. ":"):fg("blue")
+          end, 500, Header.LEFT)
+        end
+        --Show symlink in status bar
+        Status:children_add(function(self)
+         	local h = self._current.hovered
+         	if h and h.link_to then
+         		return " -> " .. tostring(h.link_to)
+         	else
+         		return ""
+         	end
+         end, 3300, Status.LEFT)
+      '';
       package = pkgs.yazi;
    };
 }
