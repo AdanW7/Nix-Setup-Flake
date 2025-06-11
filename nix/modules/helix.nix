@@ -35,7 +35,7 @@ in{
                };
 
                file-picker = {
-                  hidden = false;
+                  hidden = true;
                };
 
                lsp = {

@@ -1,5 +1,9 @@
 
-{ pkgs, ... }:{
+{ pkgs, ... }:
+let
+      yaziLua = import ./../../modules/yazi_lua/init.lua;
+in
+{
    programs.yazi = {
       enable = true;
       enableZshIntegration = true;
@@ -24,8 +28,8 @@
    
          preview = {
             wrap = "yes";
-            image_filter = "catmull-rom"; #The filter used on image downscaling, lanczos3 is hightest quality but slowest
-            image_quality = 75;#Quality on pre-caching images, range 50-90., higher range = better quality but slower
+            image_filter = "lanczos3"; #The filter used on image downscaling, lanczos3 is hightest quality but slowest
+            image_quality = 90;#Quality on pre-caching images, range 50-90., higher range = better quality but slower
             ueberzug_scale = 1;#ueberzug_scale (Float): Ueberzug image scaling ratio, scale>1 for enlargement, scale<1 for reduction.
             ueberzug_offset = [0 0 0 0];# ueberzug_offset (float) ([x, y, width, height]):
             tab_size = 2;#The width of a tab character (\t) in spaces.
@@ -181,7 +185,7 @@
          };
       };
       
-      initLua = null;
+      initLua = yaziLua;
       package = pkgs.yazi;
    };
 }
