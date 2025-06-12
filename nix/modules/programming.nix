@@ -31,7 +31,7 @@
 
       typescript-language-server
 
-      # gleam
+      gleam
 
       # go
       # gopls
