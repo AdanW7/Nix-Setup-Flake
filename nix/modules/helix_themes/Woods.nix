@@ -4,7 +4,7 @@
   "constant" = { fg = "cyan"; };
   "constant.builtin.boolean" = { fg = "cyan"; modifiers = [ "bold" ];};
   "constant.character" = { fg = "blue"; };
-  "constant.numeric.float" = { fg = "black-light"; };
+  "constant.numeric.float" = { fg = "lavendar"; };
   "constant.builtin" = { fg = "blue"; };
   "constant.numeric" = { fg = "yellow"; };
   "constructor" = { fg = "blue"; };
