@@ -68,7 +68,7 @@
   "ui.bufferline.background" = {bg = "none";};
   "ui.text" = { fg = "foreground"; };
   "ui.text.focus" = { fg = "blue"; };
-  "ui.virtual.ruler" = { bg = "cursorline"; };
+  "ui.virtual.ruler" = { bg = "none"; };
   "ui.virtual.whitespace" = { fg = "dark-comment"; };
   "ui.virtual.wrap" = { fg = "comment"; };
   "ui.virtual.indent-guide" = { fg = "dark-comment"; };
