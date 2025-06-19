@@ -39,7 +39,7 @@ in
          vim
 
       ];
-      fonts.fontconfig.enable = true;
+      # fonts.fontconfig.enable = true;
       
       sessionVariables = {
          # Make the flake’s nvim first in $PATH:
