@@ -21,6 +21,7 @@ in
 {
 
    home = {
+      username = username;
       homeDirectory = lib.mkForce homeDirectory;
       stateVersion = "23.05";
 

@@ -35,13 +35,25 @@ description = "Adans cross platform system flake";
          specialArgs = { inherit inputs; };
       };
 
-      homeConfigurations."adan@adan-pc" = inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      homeConfigurations."adan@adan-pc" =
+
+     let
+      username = "adan";  # Change this to your WSL username
+      system = "x86_64-linux";
+    in
+    inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
       modules = [
-        ./hosts/Ubuntu/home.nix
+        (import ./hosts/Ubuntu/home.nix {
+          inherit (nixpkgs.legacyPackages.${system}) pkgs lib;
+          inherit system username;
+          homeDirectory = "/home/${username}";
+          inherit inputs;
+        })
       ];
       extraSpecialArgs = { inherit inputs; };
     };
+
 
    };
 }
