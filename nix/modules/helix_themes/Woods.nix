@@ -58,8 +58,8 @@
   "ui.popup" = { fg = "foreground"; bg = "none"; };
   "ui.selection" = { bg = "grey"; };
   "ui.selection.primary" = { bg = "grey"; };
-  "ui.statusline" = { fg = "white"; bg = "commment"; };
-  "ui.statusline.inactive" = { fg = "black"; bg = "comment"; };
+  "ui.statusline" = { fg = "white"; bg = "dark-commment"; };
+  "ui.statusline.inactive" = { fg = "black"; bg = "dark-comment"; };
   "ui.statusline.normal" = { fg = "black"; bg = "blue"; modifiers = [ "bold" "italic" ];};
   "ui.statusline.insert" = { fg = "black"; bg = "yellow";modifiers = [ "bold" "italic" ]; };
   "ui.statusline.select" = { fg = "black"; bg = "red";modifiers = [ "bold" "italic" ]; };
