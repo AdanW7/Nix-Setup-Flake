@@ -32,12 +32,15 @@ in
       packages = with pkgs; [
          git
          # git-credential-manager
+         powerline-fonts
+
 
          tmux
          vim
 
       ];
-
+      fonts.fontconfig.enable = true;
+      
       sessionVariables = {
          # Make the flake’s nvim first in $PATH:
          # PATH   = "${nixvim}/bin:${pkgs.lib.makeBinPath [ pkgs.coreutils ]}:$PATH";
