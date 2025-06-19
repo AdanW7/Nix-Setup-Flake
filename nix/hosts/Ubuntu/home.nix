@@ -16,6 +16,10 @@ let
       inherit username;
       inherit homeDirectory;
    };
+   
+   zellijConfig = import ./../../modules/zellij.nix {
+      inherit pkgs;
+   };
 
 in
 {
@@ -51,6 +55,7 @@ in
    helixConfig
    yaziConfig
    zshConfig
+   zellijConfig
   ];
 
    programs = {
