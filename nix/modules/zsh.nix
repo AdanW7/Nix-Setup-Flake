@@ -49,7 +49,7 @@ in{
             nixsysupdate = "nix flake update --flake ${homeDirectory}/.config/nix";
             nixdelgen="sudo nix-env --delete-generations +2 --profile /nix/var/nix/profiles/system";
             nix-c-dev = "nix develop github:AdanW7/nix_C_dev_flake --impure --no-write-lock-file --command $SHELL";
-            wsl-switch = "home-manager switch --flake ~/.config/nix#adan@adan-pc";
+            main-home-switch = "home-manager switch --flake ~/.config/nix#adan@adan-pc";
          })
 
       ];
