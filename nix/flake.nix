@@ -35,6 +35,14 @@ description = "Adans cross platform system flake";
          specialArgs = { inherit inputs; };
       };
 
+      homeConfigurations."adan@adan-pc" = inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [
+        ./hosts/Ubuntu/home.nix
+      ];
+      extraSpecialArgs = { inherit inputs; };
+    };
+
    };
 }
 
