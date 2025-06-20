@@ -48,6 +48,7 @@
       #ols
       # odin-dev
       ruff #python
+      pyright
 
       taplo-lsp #toml
 
