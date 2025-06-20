@@ -34,6 +34,8 @@ in
          # git-credential-manager
          powerline-fonts
 
+         python311
+
          pyright
          ruff
          
