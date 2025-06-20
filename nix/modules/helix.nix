@@ -18,7 +18,44 @@ in{
                   name = "rust";
                   auto-format = false;
                }
+
+
+               {
+                  name = "python";
+                  scope = "source.python";
+                  injection-regex = "python";
+                  file-types = ["py" "pyi" "py3" "pyw" ".pythonstartup" ".pythonrc"];
+                  shebangs = ["python"];
+                  roots = ["."  "pyproject.toml"  "pyrightconfig.json"];
+                  comment-token = "#";
+                  language-servers = ["pyright" "ruff"];
+                  indent = { tab-width = 4;  unit = "    "; };
+                  auto-format = true;
+               }
+               
             ];
+            language-server = {
+               pyright = {
+                  command = "pyright-langserver";
+                  args = ["--stdio"];
+                  config = {
+                     reportMissingTypeStubs = false;
+                     python.analysis = {
+                        typeCheckingMode = "basic";
+                        autoImportCompletions = true;
+                     };
+                   };
+               };
+  
+               ruff = {
+                  command = "ruff-lsp";
+                  config = {
+                     settings = {
+                        run = "onSave";
+                     };
+                  };
+               };
+            };
          };
          settings = {
             theme = "Wodzi-theme";

@@ -34,23 +34,18 @@ in
          # git-credential-manager
          powerline-fonts
 
-
+         pyright
+         ruff
+         
          tmux
          vim
 
       ];
-      # fonts.fontconfig.enable = true;
       
       sessionVariables = {
-         # Make the flake’s nvim first in $PATH:
-         # PATH   = "${nixvim}/bin:${pkgs.lib.makeBinPath [ pkgs.coreutils ]}:$PATH";
-         # And for any $EDITOR-aware tool:
-         EDITOR = "vim";
+         # EDITOR = "vim";
+         EDITOR = "hx";
          # EDITOR = "nvim";
-
-         # CC = "clang";
-         # CXX = "clang++";
-         # CPLUS_INCLUDE_PATH = "${pkgs.libcxx.dev}/include/c++/v1";
       };
    };
   
