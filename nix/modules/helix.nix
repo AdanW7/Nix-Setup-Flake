@@ -31,6 +31,10 @@ in{
                   language-servers = ["pyright" "ruff"];
                   indent = { tab-width = 4;  unit = "    "; };
                   auto-format = true;
+                  formatter = {
+                     command = "ruff";
+                     args = ["format" "--stdin-filename" "dummy.py" "-"];
+                  };
                }
                
             ];
@@ -48,12 +52,11 @@ in{
                };
   
                ruff = {
-                  command = "ruff-lsp";
-                  config = {
-                     settings = {
-                        run = "onSave";
-                     };
-                  };
+                   command = "ruff";  # Note: changed from "ruff-lsp"
+                   args = ["server" "--preview"];
+                   config = {
+                     settings = {};
+                   };
                };
             };
          };
