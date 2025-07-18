@@ -39,6 +39,10 @@ in
          openssl
          pkg-config
          lazygit
+         ocaml
+         opam
+         dune_3
+         ocamlPackages.lsp
          # tex
 
       ];
@@ -66,21 +70,14 @@ in
 
    programs = {
       # Let home-manager install and manage itself.
-      home-manager.enable = true;
+      home-manager = {
+         enable = true;
+      };
       
+      opam = {
+         enable = true;
+         enableZshIntegration = true;
+      };
    };
 
-   programs.opam = {
-     enable = true;
-     switch = {
-       # Initializes and uses OCaml 5.1. – choose whichever version you prefer
-       name = "ocaml-5.1.0";
-       kind = "switch";  # or "local-switch" if using a project-local switch
-       initOptions = ["--disable-sandboxing"];
-     };
-     # Optionally, install these packages after switch creation
-     packages = [
-       "dune"     # or any other packages you want available globally
-     ];
-   };
 }
