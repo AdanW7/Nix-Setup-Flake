@@ -63,4 +63,17 @@ in
 
    };
 
+   programs.opam = {
+     enable = true;
+     switch = {
+       # Initializes and uses OCaml 5.1. – choose whichever version you prefer
+       name = "ocaml-5.1.0";
+       kind = "switch";  # or "local-switch" if using a project-local switch
+       initOptions = ["--disable-sandboxing"];
+     };
+     # Optionally, install these packages after switch creation
+     packages = [
+       "dune"     # or any other packages you want available globally
+     ];
+   };
 }
