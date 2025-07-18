@@ -38,6 +38,7 @@ in
          nixvim
          openssl
          pkg-config
+         lazygit
          # tex
 
       ];
