@@ -39,6 +39,8 @@ in
          openssl
          pkg-config
          lazygit
+         tmux
+
          ocaml
          ocamlformat
          opam
@@ -79,6 +81,26 @@ in
          enable = true;
          enableZshIntegration = true;
       };
+      # tmux ={
+      #    enable = true;
+      #    clock24 = false;
+      #    disableConfirmationPrompt = true;
+      #    aggressiveResize = false;
+      #    baseIndex = 0;
+      #    customPaneNavigationAndResize = true;
+      #    escapeTime = 0;
+      #    extraConfig = "";
+      #    historyLimit = 5000;
+      #    keyMode = "vi";
+      #    mouse = true;
+      #    sensibleOnTop = true;
+      #    plugins = [
+      #       # pkgs.tmuxPlugins.nord
+      #       # pkgs.tmuxPlugins.better-mouse-mode
+      #    ];
+      #    # prefix = "C-a";
+      #    shortcut = "a";
+      # };
    };
 
 }
