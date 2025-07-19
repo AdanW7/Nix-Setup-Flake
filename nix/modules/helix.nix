@@ -176,6 +176,8 @@ in{
            theme = "Wodzi-theme";
 
            editor = {
+             true-color	= true;
+             # display-color-swatches = true;
              bufferline = "always";
              color-modes = true;
              line-number = "absolute";
