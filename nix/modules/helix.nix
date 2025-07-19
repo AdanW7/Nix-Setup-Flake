@@ -20,7 +20,7 @@ in{
                  command = "ocamlformat";
                  args = [
                    "--enable-outside-detected-project"
-                   "--name" "dummy.ml"
+                   "--name" "%file"
                    "-"
                  ];
                };
