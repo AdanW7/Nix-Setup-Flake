@@ -19,13 +19,13 @@ in{
                formatter = {
                  command = "ocamlformat";
                  args = [
-                   "--enable-outside-detected-project"
-                   "--name" "%file"
+                   # "--enable-outside-detected-project"
+                   # "--name" "%file"
                    "-"
+                  "--impl"
                  ];
                };
-               # Optional: configure indent if you want to override default
-               indent = { tab-width = 4; unit = " "; };
+               # indent = { tab-width = 4; unit = " "; };
              }
              {
                name = "zig";
