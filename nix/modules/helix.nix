@@ -19,9 +19,10 @@ in{
                formatter = {
                  command = "ocamlformat";
                  args = [
-                   "--enable-outside-detected-project"
-                   "--name" "%file"
+                   # "--enable-outside-detected-project"
+                   # "--name" "%file"
                    "-"
+                   "--impl"
                  ];
                };
                # indent = { tab-width = 4; unit = " "; };

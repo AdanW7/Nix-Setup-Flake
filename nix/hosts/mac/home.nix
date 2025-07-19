@@ -66,7 +66,7 @@ in
     yaziConfig
     helixConfig
     zshConfig
-    zellijConfig
+    # zellijConfig
   ];
 
    programs = {
