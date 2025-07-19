@@ -12,6 +12,7 @@ in{
            language = [
              {
                name = "ocaml";
+               auto-format = true;
                scope = "source.ocaml";
                file-types = [ "ml" "mll" "mli" "eliom" "re" "rei" ];
                language-servers = [ "ocamllsp" ];
