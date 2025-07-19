@@ -11,6 +11,12 @@ in{
          languages = {
            language = [
              {
+               name = "ocaml";
+               scope = "source.ocaml";
+               file-types = [ "ml" "mll" "mli" "eliom" "re" "rei" ];
+               language-servers = [ "ocamllsp" ];
+             } 
+             {
                name = "zig";
                auto-format = true;
              }
