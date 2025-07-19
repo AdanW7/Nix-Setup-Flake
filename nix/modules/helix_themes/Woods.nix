@@ -1,8 +1,141 @@
+# {
+#   "attribute" = { fg = "blue"; };
+#   "comment" = { fg = "light-comment"; modifiers = [ "italic" ]; };
+#   "constant" = { fg = "cyan"; };
+#   "constant.builtin.boolean" = { fg = "cyan"; modifiers = [ "bold" ];};
+#   "constant.character" = { fg = "blue"; };
+#   "constant.numeric.float" = { fg = "lavendar"; };
+#   "constant.builtin" = { fg = "blue"; };
+#   "constant.numeric" = { fg = "yellow"; };
+#   "constructor" = { fg = "blue"; };
+#   "function" = { fg = "red"; };
+#   "function.builtin" = { fg = "cyan-light"; };
+#   "function.macro" = { fg = "green"; };
+#   "function.method" = { fg = "blue-light"; };
+#   "keyword" = { fg = "blue"; };
+#   "keyword.function" = { fg = "blue"; };
+#   "keyword.operator" = { fg = "blue-light"; };
+#   "keyword.control.conditional" = { fg = "red"; };
+#   "keyword.control.import" = { fg = "red-light"; };
+#   "keyword.control.return" = { fg = "blue"; };
+#   "keyword.control.repeat" = { fg = "yellow-light"; };
+#   "keyword.control.exception" = { fg = "magenta"; };
+#   "keyword.directive"={fg = "magenta";};
+#   "label" = { fg = "blue"; };
+#   "namespace" = { fg = "red-light"; };
+#   "operator" = { fg = "white"; };
+#   # "parameter.reference" = { fg = "red-light"; };
+#   # "property" = { fg = "red"; };
+#   "punctuation.bracket" = { fg = "mint"; };
+#   "punctuation.delimiter" = { fg = "mint"; };
+#   "punctuation.special" = { fg = "mint"; };
+#   "string" = { fg = "green"; };
+#   "string.escape" = { fg = "blue"; };
+#   "string.regex" = { fg = "green"; };
+#   "string.special" = { fg = "blue"; };
+#   "string.special.symbol" = { fg = "red"; };
+#   "tag" = { fg = "blue"; };
+#   "type" = { fg = "yellow"; };
+#   "type.builtin" = { fg = "yellow"; };
+#   "variable" = { fg = "peach"; };
+#   "variable.builtin" = { fg = "blue"; };
+#   "variable.parameter" = { fg = "red"; };
+#   "variable.other.member" = { fg = "red"; };
+
+#   "diff.plus" = { fg = "green"; };
+#   "diff.delta" = { fg = "magenta"; };
+#   "diff.minus" = { fg = "red"; };
+
+#   "ui.background" = { fg = "foreground"; bg = "none"; };#none makes background transparent
+#   "ui.cursor" = { modifiers = [ "reversed" ]; };
+#   "ui.cursor.match" = { fg = "black"; bg = "lavendar";};
+#   "ui.cursorline.primary" = { bg = "cursorline"; };
+#   "ui.help" = { fg = "foreground"; bg = "none"; };
+#   "ui.linenr" = { fg = "yellow"; };
+#   "ui.linenr.selected" = { fg = "cyan"; };
+#   "ui.menu" = { fg = "blue"; bg = "none"; };
+#   "ui.menu.selected" = { fg = "black"; bg = "comment"; };
+#   "ui.popup" = { fg = "foreground"; bg = "none"; };
+#   "ui.selection" = { bg = "grey"; };
+#   "ui.selection.primary" = { bg = "grey"; };
+#   "ui.statusline" = { fg = "white"; bg = "dark-commment"; };
+#   "ui.statusline.inactive" = { fg = "black"; bg = "dark-comment"; };
+#   "ui.statusline.normal" = { fg = "black"; bg = "blue"; modifiers = [ "bold" "italic" ];};
+#   "ui.statusline.insert" = { fg = "black"; bg = "yellow";modifiers = [ "bold" "italic" ]; };
+#   "ui.statusline.select" = { fg = "black"; bg = "red";modifiers = [ "bold" "italic" ]; };
+#   "ui.bufferline" = {fg = "white"; bg = "none";};
+#   "ui.bufferline.active" = {fg = "black"; bg = "blue";modifiers = [ "bold" ];};
+#   "ui.bufferline.background" = {bg = "none";};
+#   "ui.text" = { fg = "foreground"; };
+#   "ui.text.focus" = { fg = "blue"; };
+#   "ui.virtual.ruler" = { bg = "none"; };
+#   "ui.virtual.whitespace" = { fg = "dark-comment"; };
+#   "ui.virtual.wrap" = { fg = "comment"; };
+#   "ui.virtual.indent-guide" = { fg = "dark-comment"; };
+#   "ui.virtual.inlay-hint" = { fg = "comment"; };
+#   "ui.window" = { fg = "comment"; };
+
+#   "error" = { fg = "red"; };
+#   "hint" = { fg = "green"; };
+#   "warning" = { fg = "yellow"; };
+#   "info" = { fg = "blue"; };
+
+#   "diagnostic.error" = { underline = { style = "curl"; color = "red"; }; };
+#   "diagnostic.warning" = { underline = { style = "curl"; color = "yellow"; }; };
+#   "diagnostic.info" = { underline = { style = "curl"; color = "blue"; }; };
+#   "diagnostic.hint" = { underline = { style = "curl"; color = "green"; }; };
+#   "diagnostic.unnecessary" = { modifiers = [ "dim" ]; };
+#   "diagnostic.deprecated" = { modifiers = [ "crossed_out" ]; };
+#   "special" = { fg = "red-light"; };
+
+#   "markup.heading" = { fg = "blue"; modifiers = [ "bold" ]; };
+#   "markup.list" = { fg = "cyan"; };
+#   "markup.bold" = { fg = "magenta"; modifiers = [ "bold" ]; };
+#   "markup.italic" = { fg = "yellow"; modifiers = [ "italic" ]; };
+#   "markup.strikethrough" = { modifiers = [ "crossed_out" ]; };
+#   "markup.link.url" = { fg = "green"; };
+#   "markup.link.text" = { fg = "black-light"; };
+#   "markup.quote" = { fg = "yellow"; modifiers = [ "italic" ]; };
+#   "markup.raw" = { fg = "cyan"; };
+
+#   palette = {
+#     grey = "#505557";
+#     black = "#232a2d";
+#     red = "#e57474";
+#     green = "#8ccf7e";
+#     yellow = "#e5c76b";
+#     blue = "#67b0e8";
+#     magenta = "#c47fd5";
+#     cyan = "#6cbfbf";
+#     white = "#b3b9b8";
+#     black-light = "#2d3437";
+#     red-light = "#ef7e7e";
+#     green-light = "#96d988";
+#     yellow-light = "#f4d67a";
+#     blue-light = "#71baf2";
+#     magenta-light = "#ce89df";
+#     cyan-light = "#67cbe7";
+#     white-light = "#bdc3c2";
+#     dark-comment = "#404749";
+#     comment = "#7a7c7e";
+#     light-comment = "#8a8c8e";
+#     contrast = "#161d1f";
+#     background = "#141b1e";
+#     foreground = "#dadada";
+#     cursorline = "#2c3333";
+#     mint = "#5de6a8";
+#     lavendar = "#c8a8e8";
+#     soft-teal = "#a8d4d4";
+#     peach = "#f2b5a7";
+#     orange = "#ffb366";
+#   };
+
+# }
 {
   "attribute" = { fg = "blue"; };
   "comment" = { fg = "light-comment"; modifiers = [ "italic" ]; };
   "constant" = { fg = "cyan"; };
-  "constant.builtin.boolean" = { fg = "cyan"; modifiers = [ "bold" ];};
+  "constant.builtin.boolean" = { fg = "cyan"; modifiers = [ "bold" ]; };
   "constant.character" = { fg = "blue"; };
   "constant.numeric.float" = { fg = "lavendar"; };
   "constant.builtin" = { fg = "blue"; };
@@ -20,7 +153,7 @@
   "keyword.control.return" = { fg = "blue"; };
   "keyword.control.repeat" = { fg = "yellow-light"; };
   "keyword.control.exception" = { fg = "magenta"; };
-  "keyword.directive"={fg = "magenta";};
+  "keyword.directive" = { fg = "magenta"; };
   "label" = { fg = "blue"; };
   "namespace" = { fg = "red-light"; };
   "operator" = { fg = "white"; };
@@ -46,26 +179,26 @@
   "diff.delta" = { fg = "magenta"; };
   "diff.minus" = { fg = "red"; };
 
-  "ui.background" = { fg = "foreground"; bg = "none"; };#none makes background transparent
+  "ui.background" = { fg = "foreground"; bg = "none"; };
   "ui.cursor" = { modifiers = [ "reversed" ]; };
-  "ui.cursor.match" = { fg = "black"; bg = "lavendar";};
+  "ui.cursor.match" = { fg = "black"; bg = "lavendar"; };
   "ui.cursorline.primary" = { bg = "cursorline"; };
   "ui.help" = { fg = "foreground"; bg = "none"; };
   "ui.linenr" = { fg = "yellow"; };
   "ui.linenr.selected" = { fg = "cyan"; };
   "ui.menu" = { fg = "blue"; bg = "none"; };
   "ui.menu.selected" = { fg = "black"; bg = "comment"; };
-  "ui.popup" = { fg = "foreground"; bg = "none"; };
+  "ui.popup" = { fg = "foreground"; bg = "dark-comment"; };
   "ui.selection" = { bg = "grey"; };
   "ui.selection.primary" = { bg = "grey"; };
   "ui.statusline" = { fg = "white"; bg = "dark-commment"; };
   "ui.statusline.inactive" = { fg = "black"; bg = "dark-comment"; };
-  "ui.statusline.normal" = { fg = "black"; bg = "blue"; modifiers = [ "bold" "italic" ];};
-  "ui.statusline.insert" = { fg = "black"; bg = "yellow";modifiers = [ "bold" "italic" ]; };
-  "ui.statusline.select" = { fg = "black"; bg = "red";modifiers = [ "bold" "italic" ]; };
-  "ui.bufferline" = {fg = "white"; bg = "none";};
-  "ui.bufferline.active" = {fg = "black"; bg = "blue";modifiers = [ "bold" ];};
-  "ui.bufferline.background" = {bg = "none";};
+  "ui.statusline.normal" = { fg = "black"; bg = "blue"; modifiers = [ "bold" "italic" ]; };
+  "ui.statusline.insert" = { fg = "black"; bg = "yellow"; modifiers = [ "bold" "italic" ]; };
+  "ui.statusline.select" = { fg = "black"; bg = "red"; modifiers = [ "bold" "italic" ]; };
+  "ui.bufferline" = { fg = "white"; bg = "none"; };
+  "ui.bufferline.active" = { fg = "black"; bg = "blue"; modifiers = [ "bold" ]; };
+  "ui.bufferline.background" = { bg = "none"; };
   "ui.text" = { fg = "foreground"; };
   "ui.text.focus" = { fg = "blue"; };
   "ui.virtual.ruler" = { bg = "none"; };
@@ -89,12 +222,12 @@
   "special" = { fg = "red-light"; };
 
   "markup.heading" = { fg = "blue"; modifiers = [ "bold" ]; };
-  "markup.list" = { fg = "cyan"; };
+  "markup.list" = { fg = "peach"; };
   "markup.bold" = { fg = "magenta"; modifiers = [ "bold" ]; };
   "markup.italic" = { fg = "yellow"; modifiers = [ "italic" ]; };
   "markup.strikethrough" = { modifiers = [ "crossed_out" ]; };
   "markup.link.url" = { fg = "green"; };
-  "markup.link.text" = { fg = "black-light"; };
+  "markup.link.text" = { fg = "red"; };
   "markup.quote" = { fg = "yellow"; modifiers = [ "italic" ]; };
   "markup.raw" = { fg = "cyan"; };
 
@@ -129,5 +262,5 @@
     peach = "#f2b5a7";
     orange = "#ffb366";
   };
-
 }
+
