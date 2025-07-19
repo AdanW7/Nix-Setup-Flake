@@ -40,6 +40,7 @@ in
          pkg-config
          lazygit
          ocaml
+         ocamlformat
          opam
          dune_3
          ocamlPackages.lsp
