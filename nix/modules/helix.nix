@@ -15,7 +15,17 @@ in{
                scope = "source.ocaml";
                file-types = [ "ml" "mll" "mli" "eliom" "re" "rei" ];
                language-servers = [ "ocamllsp" ];
-             } 
+               formatter = {
+                 command = "ocamlformat";
+                 args = [
+                   "--enable-outside-detected-project"
+                   "--name" "dummy.ml"
+                   "-"
+                 ];
+               };
+               # Optional: configure indent if you want to override default
+               indent = { tab-width = 4; unit = " "; };
+             }
              {
                name = "zig";
                auto-format = true;
