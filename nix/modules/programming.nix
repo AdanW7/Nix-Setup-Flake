@@ -14,7 +14,7 @@
       
       # haskell-language-server
 
-      bash-language-server
+      # bash-language-server
 
       texlab
       bibtex-tidy

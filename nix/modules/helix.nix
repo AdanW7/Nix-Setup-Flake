@@ -25,7 +25,6 @@ in{
                file-types = [ "py" "pyi" "py3" "pyw" ".pythonstartup" ".pythonrc" ];
                injection-regex = "python";
                language-servers = [ "pyright" "ruff" "scls" ];
-               name = "python";
                roots = [ "." "pyproject.toml" "pyrightconfig.json" ];
                scope = "source.python";
                shebangs = [ "python" ];
