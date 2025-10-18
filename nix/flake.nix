@@ -10,7 +10,7 @@ description = "Adans cross platform system flake";
       home-manager.url = "github:nix-community/home-manager";
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-      Adan-nixvim.url = "github:AdanW7/nixvim";
+      # Adan-nixvim.url = "github:AdanW7/nixvim";
    };
 
    outputs = inputs@{ nix-darwin, nixpkgs, ... }:{

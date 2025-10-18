@@ -2,8 +2,8 @@
    environment.systemPackages = with pkgs; [
       gnumake
 
-      zig
-      zls
+      # zig
+      # zls
       lldb_20
 
       clang-tools     

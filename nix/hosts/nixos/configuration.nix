@@ -212,7 +212,7 @@ in
          system = "x86_64-linux";
          username = username;
          homeDirectory = "/home/${username}";
-         inherit (inputs) Adan-nixvim;
+         # inherit (inputs) Adan-nixvim;
       };
    };
 

@@ -1,4 +1,6 @@
-{ pkgs, lib, system, username,homeDirectory,Adan-nixvim, ... }: 
+{ pkgs, lib, system, username,homeDirectory,
+# Adan-nixvim,
+ ... }: 
 let
   # isLinux = system == "x86_64-linux";
 
@@ -6,7 +8,7 @@ let
     inherit (pkgs.texlive) scheme-full;
     };
 
-   inherit (Adan-nixvim.packages.${system}) nixvim;
+   # inherit (Adan-nixvim.packages.${system}) nixvim;
 
    yaziConfig = import ./../../modules/yazi.nix {
       inherit pkgs;
@@ -37,7 +39,7 @@ in
          cmake           # to generate compile_commands.json
          libcxx          # C++ standard library headers
          gnumake
-         nixvim
+         # nixvim
          git
          git-credential-manager
 
@@ -63,7 +65,7 @@ in
 
       sessionVariables = {
          # Make the flake’s nvim first in $PATH:
-         PATH   = "${nixvim}/bin:${pkgs.lib.makeBinPath [ pkgs.coreutils ]}:$PATH";
+         # PATH   = "${nixvim}/bin:${pkgs.lib.makeBinPath [ pkgs.coreutils ]}:$PATH";
          # And for any $EDITOR-aware tool:
          EDITOR = "nvim";
 

@@ -27,7 +27,7 @@ in
          system = "aarch64-darwin";
          username = username;
          homeDirectory = "/Users/${username}";
-         inherit (inputs) Adan-nixvim;
+         # inherit (inputs) Adan-nixvim;
       };
    };
   programs.zsh.enable = true;
