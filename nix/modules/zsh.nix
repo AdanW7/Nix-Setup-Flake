@@ -63,6 +63,7 @@ in{
             export PATH="$PATH:/Users/${username}/.local/bin"
             export PATH="$PATH:/opt/homebrew/bin"
             export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$PKG_CONFIG_PATH"
+            export VK_ICD_FILENAMES=/usr/local/share/vulkan/icd.d/MoltenVK_icd.json
 
 
             # Zsh plugins
